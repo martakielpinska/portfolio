@@ -7,6 +7,7 @@ body {
   margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow: hidden;
 }
 article,
 aside,
@@ -187,7 +188,7 @@ textarea {
 html {
   font: 112.5%/1.45em georgia, serif;
   box-sizing: border-box;
-  overflow-y: scroll;
+  overflow-y: hidden;
 }
 * {
   box-sizing: inherit;
@@ -619,4 +620,22 @@ pre tt:after {
   html {
     font-size: 100%;
   }
+}
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #1a1a1a; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: white; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
 }
