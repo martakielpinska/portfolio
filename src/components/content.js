@@ -680,7 +680,7 @@ export let contentPages = [
         </p>
         <img
           style={{ width: "50%", display: "block", margin: "5vh auto" }}
-          src={require("../images/film.png")}
+          src={require("../images/film.PNG")}
         />
         <p>
           Having all those people over have had a massive influence on me and
