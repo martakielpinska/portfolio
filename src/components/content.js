@@ -54,7 +54,7 @@ export let contentPages = [
           <br />
         </p>
         <img
-          src={require("../images/000030.JPG")}
+          src={require("../images/000030.jpg")}
           style={{
             width: "45%",
             display: "flex",
@@ -91,7 +91,7 @@ export let contentPages = [
           <br />
         </p>
         <img
-          src={require("../images/000031.JPG")}
+          src={require("../images/000031.jpg")}
           style={{
             width: "45%",
             display: "flex",
@@ -126,7 +126,7 @@ export let contentPages = [
           <br />
         </p>
         <img
-          src={require("../images/000027.JPG")}
+          src={require("../images/000027.jpg")}
           style={{ width: "80%", display: "block", margin: "5vh auto" }}
         />
       </div>
