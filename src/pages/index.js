@@ -161,6 +161,13 @@ class IndexPage extends React.Component {
                 style={{ width: "20vw", margin: "45vh 0 0 1.5vw" }}
               />
             </div>
+
+            <div style={styles.panel11} onClick={() => this.goTo(10)}>
+              <img
+                src={require("../images/exp.png")}
+                style={{ width: "20vw", margin: "45vh 0 0 1.5vw" }}
+              />
+            </div>
           </div>
         </div>
         {/* <h1>Hi people</h1>
@@ -338,6 +345,19 @@ const styles = {
     marginLeft: "5vw",
     float: "left",
     backgroundImage: "url(" + "https://i.ibb.co/djFz0NZ/breaking.png" + ")",
+    backgroundPosition: "center",
+    backgroundSize: "cover",
+    backgroundRepeat: "no-repeat",
+    position: "relative",
+    cursor: "pointer",
+  },
+  panel11: {
+    width: "50vw",
+    height: "100%",
+    backgroundColor: "green",
+    marginLeft: "5vw",
+    float: "left",
+    backgroundImage: "url(" + "https://i.ibb.co/WPrkw4p/exp.jpg" + ")",
     backgroundPosition: "center",
     backgroundSize: "cover",
     backgroundRepeat: "no-repeat",

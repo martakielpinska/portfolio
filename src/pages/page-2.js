@@ -162,6 +162,7 @@ const styles = {
     paddingTop: "2vh",
     margin: "2vh 0",
     paddingBottom: "2vh",
+    paddingLeft: "5vw",
   },
   bodyText: {
     fontFamily: "Raleway, sans-serif",

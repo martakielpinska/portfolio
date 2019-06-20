@@ -26,7 +26,7 @@ class ThirdPage extends React.Component {
   //   || navigator.userAgent.match(/iPad/i)
   //   || navigator.userAgent.match(/iPod/i)
   //   || navigator.userAgent.match(/BlackBerry/i)
-  //   || navigator.userAgent.match(/Windows Phone/i)
+  //   || navigator.us erAgent.match(/Windows Phone/i)
   //   ){
   //      return true;
   //    }
@@ -70,6 +70,10 @@ class ThirdPage extends React.Component {
     // this.setState({
     //   gallery: no+'M.jpg'
     // })
+  }
+
+  goTo = id => {
+    navigate("/page-2", { state: { id: id } })
   }
 
   render() {
@@ -117,7 +121,11 @@ class ThirdPage extends React.Component {
 
       list = mycontent.map(el => {
         return (
-          <div style={styles.postRow} key={el.title}>
+          <div
+            style={styles.postRow}
+            key={el.title}
+            onClick={() => this.goTo(el.id)}
+          >
             <div style={styles.letterHolder}>
               {el.letters.map(e => {
                 return (
