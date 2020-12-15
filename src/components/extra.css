@@ -1,3 +1,7 @@
-body{
-    overflow: auto !important;
+body {
+  overflow: auto !important;
+}
+
+.letterRow:hover {
+  background-color: red;
 }

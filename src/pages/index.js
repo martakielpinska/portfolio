@@ -32,7 +32,7 @@ class IndexPage extends React.Component {
   render() {
     return (
       <Layout>
-        <SEO title="Home" />
+        <SEO title="Analog Space" />
         <div
           style={{
             position: "absolute",
@@ -70,7 +70,7 @@ class IndexPage extends React.Component {
             overflowY: "hidden",
           }}
         >
-          <div style={{ width: "800vw", height: "100%" }}>
+          <div style={{ width: "400vw", height: "100%" }}>
             <div
               style={{
                 width: "25vw",
@@ -85,10 +85,17 @@ class IndexPage extends React.Component {
               }}
             />
             <div style={styles.frame1}>
-              <img
-                src={require("../images/title.png")}
-                style={{ width: "60%", margin: "5vh 0 0 5vw" }}
-              />
+              <h2
+                style={{
+                  fontFamily: "'Major Mono Display', monospace",
+                  marginLeft: "5vw",
+                  marginTop: "5vw",
+                  color: "white",
+                  fontSize: "3vh",
+                }}
+              >
+                ROAD TO GRADUATION <br /> AT ANALOG SPACE
+              </h2>
               <p style={styles.text1}>MARTA KIELPINSKA</p>
               <p style={styles.text2}>CREATIVE PORTFOLIO</p>
               <div style={styles.stripe} onClick={() => this.godView()}>
@@ -100,74 +107,158 @@ class IndexPage extends React.Component {
               </div>
             </div>
             <div style={styles.panel2} onClick={() => this.goTo(1)}>
-              <img
-                src={require("../images/shittyRobot.png")}
-                style={{ width: "20vw", margin: "45vh 0 0 1.5vw" }}
-              />
+              <h2
+                style={{
+                  fontFamily: "'Major Mono Display', monospace",
+                  marginLeft: "5vw",
+                  marginTop: "5vw",
+                  color: "white",
+                  fontSize: "3vh",
+                }}
+              >
+                CUSTOM USER INTERFACES
+              </h2>
             </div>
 
             <div style={styles.panel3} onClick={() => this.goTo(2)}>
-              <img
-                src={require("../images/vuejs.png")}
-                style={{ width: "22vw", margin: "45vh 0 0 1.5vw" }}
-              />
+              <h2
+                style={{
+                  fontFamily: "'Major Mono Display', monospace",
+                  marginLeft: "5vw",
+                  marginTop: "5vw",
+                  color: "white",
+                  fontSize: "3vh",
+                }}
+              >
+                LIGHT RESEARCH
+              </h2>
             </div>
 
             <div style={styles.panel4} onClick={() => this.goTo(3)}>
-              <img
-                src={require("../images/DIY.png")}
-                style={{ width: "22vw", margin: "45vh 0 0 1.5vw" }}
-              />
+              <h2
+                style={{
+                  fontFamily: "'Major Mono Display', monospace",
+                  marginLeft: "5vw",
+                  marginTop: "5vw",
+                  color: "white",
+                  fontSize: "3vh",
+                }}
+              >
+                SVGS IN HYBRID APPS
+              </h2>
             </div>
 
             <div style={styles.panel10} onClick={() => this.goTo(9)}>
-              <img
-                src={require("../images/BF.png")}
-                style={{ width: "20vw", margin: "45vh 0 0 1.5vw" }}
-              />
+              <h2
+                style={{
+                  fontFamily: "'Major Mono Display', monospace",
+                  marginLeft: "5vw",
+                  marginTop: "5vw",
+                  color: "white",
+                  fontSize: "3vh",
+                }}
+              >
+                TOUCHLESS USER EXPERIENCE
+              </h2>
             </div>
 
             <div style={styles.panel5} onClick={() => this.goTo(4)}>
-              <img
-                src={require("../images/react.png")}
-                style={{ width: "25vw", margin: "45vh 0 0 1.5vw" }}
-              />
+              <h2
+                style={{
+                  fontFamily: "'Major Mono Display', monospace",
+                  marginLeft: "5vw",
+                  marginTop: "5vw",
+                  color: "white",
+                  fontSize: "3vh",
+                }}
+              >
+                ENGINEERING CHEMISTRY
+              </h2>
             </div>
 
-            <div style={styles.panel6} onClick={() => this.goTo(5)}>
-              <img
-                src={require("../images/GATSBY.png")}
-                style={{ width: "20vw", margin: "45vh 0 0 1.5vw" }}
-              />
+            {/* <div style={styles.panel6} onClick={() => this.goTo(5)}>
+              <h2
+                style={{
+                  fontFamily: "'Major Mono Display', monospace",
+                  marginLeft: "5vw",
+                  marginTop: "5vw",
+                  color: "white",
+                  fontSize: "3vh",
+                }}
+              >
+                SUPPORTING ANDROID
+              </h2>
             </div>
 
             <div style={styles.panel7} onClick={() => this.goTo(6)}>
-              <img
-                src={require("../images/OC.png")}
-                style={{ width: "20vw", margin: "45vh 0 0 1.5vw" }}
-              />
+              <h2
+                style={{
+                  fontFamily: "'Major Mono Display', monospace",
+                  marginLeft: "5vw",
+                  marginTop: "5vw",
+                  color: "white",
+                  fontSize: "3vh",
+                }}
+              >
+                SUPPORTING IOS
+              </h2>
             </div>
 
             <div style={styles.panel8} onClick={() => this.goTo(7)}>
-              <img
-                src={require("../images/track.png")}
-                style={{ width: "20vw", margin: "45vh 0 0 1.5vw" }}
-              />
+              <h2
+                style={{
+                  fontFamily: "'Major Mono Display', monospace",
+                  marginLeft: "5vw",
+                  marginTop: "5vw",
+                  color: "white",
+                  fontSize: "3vh",
+                }}
+              >
+                SOCIAL MEDIA
+              </h2>
             </div>
 
             <div style={styles.panel9} onClick={() => this.goTo(8)}>
-              <img
-                src={require("../images/3d.png")}
-                style={{ width: "20vw", margin: "45vh 0 0 1.5vw" }}
-              />
+              <h2
+                style={{
+                  fontFamily: "'Major Mono Display', monospace",
+                  marginLeft: "5vw",
+                  marginTop: "5vw",
+                  color: "white",
+                  fontSize: "3vh",
+                }}
+              >
+                IMAGE PROCESSING IN HYBRID APPS
+              </h2>
             </div>
 
             <div style={styles.panel11} onClick={() => this.goTo(10)}>
-              <img
-                src={require("../images/exp.png")}
-                style={{ width: "20vw", margin: "45vh 0 0 1.5vw" }}
-              />
+              <h2
+                style={{
+                  fontFamily: "'Major Mono Display', monospace",
+                  marginLeft: "5vw",
+                  marginTop: "5vw",
+                  color: "white",
+                  fontSize: "3vh",
+                }}
+              >
+                CREATIVE PROBLEM SOLVING
+              </h2>
             </div>
+
+            <div style={styles.panel11} onClick={() => this.goTo(10)}>
+              <h2
+                style={{
+                  fontFamily: "'Major Mono Display', monospace",
+                  marginLeft: "5vw",
+                  marginTop: "5vw",
+                  color: "white",
+                  fontSize: "3vh",
+                }}
+              >
+                THE CHEMISTRY
+              </h2>
+            </div> */}
           </div>
         </div>
         {/* <h1>Hi people</h1>
@@ -229,7 +320,7 @@ const styles = {
     marginLeft: "5vw",
     float: "left",
     position: "relative",
-    backgroundImage: "url(" + "https://i.ibb.co/jbcTnzt/000015-Copy.jpg" + ")",
+    backgroundImage: "url(" + "https://i.ibb.co/qR6yVzz/main.jpg" + ")",
     backgroundPosition: "top",
     backgroundSize: "cover",
     backgroundRepeat: "no-repeat",
@@ -240,7 +331,7 @@ const styles = {
     backgroundColor: "green",
     marginLeft: "5vw",
     float: "left",
-    backgroundImage: "url(" + "https://i.ibb.co/8Kj3kqY/000031.jpg" + ")",
+    backgroundImage: "url(" + "https://i.ibb.co/5K4p83h/int.jpg" + ")",
     backgroundPosition: "top",
     backgroundSize: "cover",
     backgroundRepeat: "no-repeat",
@@ -253,7 +344,7 @@ const styles = {
     backgroundColor: "green",
     marginLeft: "5vw",
     float: "left",
-    backgroundImage: "url(" + "https://i.ibb.co/cyzrQ7b/vue.jpg" + ")",
+    backgroundImage: "url(" + "https://i.ibb.co/X2xYsHP/light.jpg" + ")",
     backgroundPosition: "top",
     backgroundSize: "cover",
     backgroundRepeat: "no-repeat",
@@ -266,7 +357,7 @@ const styles = {
     backgroundColor: "green",
     marginLeft: "5vw",
     float: "left",
-    backgroundImage: "url(" + "https://i.ibb.co/3S14nty/diydarkroom.jpg" + ")",
+    backgroundImage: "url(" + "https://i.ibb.co/6twsJH0/mycam.jpg" + ")",
     backgroundPosition: "top",
     backgroundSize: "cover",
     backgroundRepeat: "no-repeat",
@@ -279,7 +370,7 @@ const styles = {
     backgroundColor: "green",
     marginLeft: "5vw",
     float: "left",
-    backgroundImage: "url(" + "https://i.ibb.co/D138ckn/wolf.png" + ")",
+    backgroundImage: "url(" + "https://i.ibb.co/sHyqkZH/dev.jpg" + ")",
     backgroundPosition: "top",
     backgroundSize: "cover",
     backgroundRepeat: "no-repeat",
@@ -344,7 +435,7 @@ const styles = {
     backgroundColor: "green",
     marginLeft: "5vw",
     float: "left",
-    backgroundImage: "url(" + "https://i.ibb.co/djFz0NZ/breaking.png" + ")",
+    backgroundImage: "url(" + "https://i.ibb.co/7gkTrz3/vin.jpg" + ")",
     backgroundPosition: "center",
     backgroundSize: "cover",
     backgroundRepeat: "no-repeat",

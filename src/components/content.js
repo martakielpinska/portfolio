@@ -18,43 +18,106 @@ let imgs = {
 export let contentPages = [
   {
     id: 1,
-    title: "Shitty Robot",
+    title: "Custom User Interfaces",
     thing: ["identity", "technology"],
-    letters: ["A", "M"],
+    letters: ["AN", "D", "I", "J", "L"],
     img: "sr.jpg",
     body: (
       <div style={div}>
+        <img
+          style={{
+            height: "80vh",
+            display: "block",
+            margin: "0 auto",
+          }}
+          src="https://s7.gifyu.com/images/entancegif.gif"
+          alt="entancegif.gif"
+          border="0"
+        />
         <p style={style}>
-          <b>Intro</b>
+          <b>The entrance page</b>
           <br />
-          At the beginning of the minor we were given a Shitty Robot challenge.
-          The task was interesting: we were supposed to bring old equipment from
-          our houses and repurpose it into robots that will entertain children.
-          Everyone was working in groups, and each of them was combining people
-          of different cultures and skills.
+          The Analog Space mobile app was initially intended to implement the
+          freemium scheme, however this was cut out of the scope at the early
+          stage of app and content development by the main stakeholder. Our
+          mutual decision then, as the company co-funders, was to focus on the
+          app’s unique selling point which are the custom darkroom/lab
+          tutorials. It will be decided later on, after the project is
+          completed, if the app will be free/freemium/paid. Therefore, I could
+          not design a standard login page, with the login form followed by the
+          register page. The user will for now have two options to choose from :
+          be a logged in user and use the app fully, or continue without signing
+          in, which will then limit him/her to be only a silence observer. If he
+          chooses to interact, the user will have to start an account. This way,
+          if Analog Space decides to add the paygate, it could apply only to
+          logged in users, and there won’t be any significant design changes.
           <br />
           <br />
-          <b>My limits in this project</b>
+          I decided during the design stage of the app that after the onboarding
+          page, the user will be placed on an “entrance” page. The entrance page
+          in my mind was a page that is initially split in half, and if the user
+          swipes up, he will be shown the sign in sceen. Swiping down will move
+          the user to the main page of the app, giving him only the possibility
+          to look around the app without any interactions (no likes, comments,
+          contest entries etc.).
           <br />
-          To kick off our project we looked at the used stuff we brought from
-          home to figure out what we could do with it. Normally I would be full
-          of creative ideas and I could communicate them easily to my group.
-          I’ve been working on many projects where I was chosen to be a leader
-          by my teammates. I love being a leader instead of a boss, but
-          sometimes I do tend to overlook valuable insights to push my own
-          ideas. It’s a flaw of mine that I’ve decided to work hard on during
-          this minor. This time pushing myself into a leader role would have
-          felt odd, because it was a new environment for me and I was working
-          with a number of people who were mechanical engineers. They were more
-          skilled in the field of this project and I felt it would be best to
-          give them the steering wheel, as they could foresee better if the
-          chosen solution will work out, or will be achievable in the given time
-          frame.
+          <br />
+          This interface seemed very easy at first, one could say it was
+          ‘simple’. However, once I started to implement the entrance page, I
+          started to hit a wall. And once I broke through the bricks by solving
+          a problem, another wall would appear. I have spent a lot more time
+          than planned building this interface, but I do not regret it. I did
+          not sacrifice my initial vision for the page by some quick fix or a
+          compromise. Instead, I worked through all the problems I faced.
           <br />
           <br />
         </p>
         <img
-          src={require("../images/000030.jpg")}
+          src="https://i.ibb.co/VgHCzzW/Zrzut-ekranu-2020-08-22-o-14-53-55.png"
+          style={{
+            width: "35%",
+            display: "flex",
+            display: "block",
+            margin: "2.5vh auto",
+          }}
+        />
+        <p style={style}>
+          <b>PROBLEM 1: Choose a widget</b>
+          <br />
+          Widgets are high level objects used to describe any part of an
+          application. It can be but is not limited to UI elements such as
+          buttons ; layout (alignment, padding, ...) ; data (a theme,
+          configurations) ... Widgets can be everything. In flutter, almost
+          everything you'll code will be inside a Widget. Even things like
+          "redux reducers" are widgets in flutter. In a sense, widgets are
+          extremely similar to React components.
+          <br />
+          I had many options to choose from, when it came to finding a scrolling
+          widget. There are ScrollViews, CustomScrollViews, NestedScrollViews
+          and Scrollable widgets. Neither of these turned out to be the right
+          option to implement the design I have invisioned. All of the above
+          widgets, all though they are scrollable, they do not come with a built
+          in “border”. A border is a trigger point that should initiate an
+          animation in my case. I tried to implement the “border” in a custom
+          scroll view but quickly gave up on the idea. After consulting with my
+          mentor I chose a PageView, which come with a ‘built in’ border that
+          triggers an animation. It might seem like it was an obvious choice
+          which I should go with in the beginning. However, PageView came with
+          it’s own challenges (PROBLEM 2).
+          <br />
+          <br />
+        </p>
+        <img
+          src="https://i.ibb.co/KLP9JZK/Zrzut-ekranu-2020-08-22-o-14-57-42.png"
+          style={{
+            width: "45%",
+            display: "flex",
+            display: "block",
+            margin: "2.5vh auto",
+          }}
+        />
+        <img
+          src="https://i.ibb.co/Vx9s1wp/Zrzut-ekranu-2020-08-22-o-14-57-57.png"
           style={{
             width: "45%",
             display: "flex",
@@ -63,963 +126,1227 @@ export let contentPages = [
           }}
         />
         <p style={style}>
-          <b>Looking for a solution</b>
+          <b>PROBLEM 2: Load in the mid page</b>
           <br />
-          Although I was hesitating at first, I did pitch the idea of using the
-          hairdryer to inflate a puppet. It was so great to see how this group
-          of individuals took this simple idea and went so far with it. They
-          added a hide and seek game to our concept, and me and Daisy worked
-          together on making our robot likable by children. The hairdryer seemed
-          like an obvious solution to us. I always like experimenting with
-          things, and trying to find alternative ways of tackling a problem,
-          just like with my Darkroom project. That’s why I enjoyed it so much
-          when me and my group we’re trying to use a blender as a fan. We 3d
-          printed a fan that we clipped on top of the spinning base.
-          Unfortunately, the whole thing exploded, and I was very lucky to keep
-          my both arms afterwards. I still feel like it was a great idea, and if
-          we would have a little more time and a different target group, we
-          would have gone for it. We moved back to the hairdryer after the
-          experiment went south, to avoid any safety hazards, and keep children
-          safe & entertained. It was a great experience and in the future, I
-          want to explore more crazy ideas and see how the things we use every
-          day can be transformed. I think the important lesson I got from
-          considering those alternative ideas is not very original, but
-          extremely true: we learn something new every day, but to learn you
-          must ask questions. The crazier the question is, the more interesting
-          can be the lesson!
+          The PageView allowed me to keep two full height, independent pages in
+          swipeable container. I previously implemented the PageView in the
+          onboarding section, where you can see it’s horizontal version.
           <br />
           <br />
+          The entrance page had to be a vertical PageView, loaded mid page.
+          After carefully looking through the documentation I found out there
+          was no prop I could simply set to achieve the effect I was hoping for.
+          My PageView had a controller attached to it, monitoring the page
+          postion amongs other things. I tried scrolling to the mid page on page
+          load but ran into many errors. It would work sometimes, but after
+          restaring the app, it would crash on this page. The problem was the
+          timing of this function. I tried to place it in many different places,
+          however, every time I would find out that the PageView was not ready
+          yet, or it’s “children” - the pages - were not present.
+          <br />
+          <br />
+          In Flutter a context is a very, if not the most, powerful thing. To
+          make any animation happen, I have to pass the context there. Therefore
+          I tried to place the animation inside of the build function. But since
+          the layout is not built yet, I had to assign a sort of a listener for
+          after the pageview is ready. Still, that was not enough, as
+          occassionally an error would make the app crash. Here is my final
+          solution:
+          <br />
+          <b>
+            1. Add a post frame callback in the build function and pass the
+            context
+          </b>
         </p>
         <img
-          src={require("../images/000031.jpg")}
-          style={{
-            width: "45%",
-            display: "flex",
-            display: "block",
-            margin: "2.5vh auto",
-          }}
-        />
-        <p style={style}>
-          <b>Process and reflections</b>
-          <br />
-          While the mechanical engineer of my team were busy working on wires,
-          and arduinos, and 3d printers, me and Daisy decided to make our robot
-          likable. We thought of giving him a backstory, we sew the “sock” that
-          played the robot, and created the base for it. We painted it and we’re
-          pretty happy with the outcome, however we still had some time left and
-          we didn’t want to just sit it out. We decided to create some reward
-          for children that play our game. Candy was off the list, so we
-          handcrafted a couple of dozens of medals with cute, animal-themed
-          stickers on them. The task might not seem like the hardest, or the
-          work we’ve done is not the most impressive compared to the rest of the
-          team. But seeing those children happy with the medals, I understood
-          that no matter the task you get in a project, even if you’re unhappy
-          and feel useless, you can always turn it around. I know that my group
-          wouldn’t have done so great without mine and Daisy’s effort. We
-          created an experience for those children, and it’s something
-          memorable. I couldn’t be more happy about it. Next time when I work in
-          a group, I will try even harder to consider other’s ideas and to see
-          my own limitations. Only fully understanding my abilities gives me the
-          opportunity of reaching my full potential within any project and
-          within life itself.
-          <br />
-          <br />
-        </p>
-        <img
-          src={require("../images/000027.jpg")}
+          src="https://i.ibb.co/p3BGfjP/Zrzut-ekranu-2020-08-18-o-21-01-27.png"
           style={{ width: "80%", display: "block", margin: "5vh auto" }}
         />
+        <p style={style}>
+          <b>
+            2. Check if the pages have attached and block the animation if the
+            view was re rendered due to another (page child) animation.
+          </b>
+        </p>
+        <img
+          src="https://i.ibb.co/CzQyKKG/Zrzut-ekranu-2020-08-18-o-21-03-03.png"
+          style={{ width: "80%", display: "block", margin: "5vh auto" }}
+        />
+        <p style={style}>
+          I believe it’s an elegant solution to all the problems I have gotten
+          on my way. Programmers often mask problems with a lot of code, I
+          managed to fix it with just a few lines (and a lot of time and
+          determination).
+          <br />
+          <br />
+        </p>
       </div>
     ),
   },
   {
     id: 2,
-    title: "Vue.js Conference",
+    title: "Light Research",
     thing: ["technology"],
-    letters: ["L", "J"],
+    letters: ["L", "J", "AN", "AD", "DOT"],
     img: "vue.jpg",
     body: (
       <div style={div}>
-        <img src={require("../images/vue.jpg")} />
         <p style={style}>
-          <b>Life as a developer</b>
+          <b>Problem description</b>
           <br />
-          In 2017, when I was finishing my internship at Isaac, I was absolutely
-          sure I will continue my career as a front-end developer. Life, school
-          and the company itself have thrown me many different directions and
-          right now I would call myself a full-stack hybrid app developer. I was
-          lucky enough to be given a sneak peak of many professions in the
-          software field, and the conclusions I took from this has led me where
-          I am now.
+          The Analog Space app consists of several darkroom and film processing
+          tutorials. During these activities the user may not be able to:
           <br />
+          &middot;touch the screen
           <br />
-          <b>Invitation to what?</b>
+          &middot;see the screen
           <br />
-          Mid-February 2019 I was invited to join the Vue.js conference held in
-          Amsterdam. That came as a surprise to me, because at the time I had
-          absolutely no experience with Vue, and didn’t even knew what it was. I
-          was hesitating whether to accept the invite, but it would be stupid
-          not to go for many reasons, such as networking. I knew that the venue
-          holds several thousand people, and the speakers are inspiring creators
-          of new frameworks.
-          <br />
-          <br />
-          <b>"Meet the divas!"</b>
-          <br />
-          The conference was definitely a new experience for me. I have never
-          seen so many bearded men in one room. It was exciting, fun, and so
-          educational. It all felt like playful learning. One of the speakers
-          was the creator of webpack, the to-go module bundler for web
-          developers at the current time. His name is Sean Larkin and he is a
-          hell of a speaker. Sean is kind of a diva in the software world, and
-          his tweets can often be found in-between programming jokes. He
-          explained wolfpack inside out, and I that day I came back home eager
-          to try out all the new things that day.
+          &middot;have the screen emitting any light onto the light sensitive
+          materials.
+          <br /> <br />
+          During the course of this project I have been trying to answer several
+          important questions in order to design and implement the tutorials in
+          a usable way. The most important problem to tackle was the screen
+          emitting light during the tutorial process, which could possibly
+          damage any light sensitive materials such as printing paper and film
+          rolls. Analog Space had to first proof that in fact, it was a problem,
+          and what could be possible solutions to it. Would it be enough to
+          create a fix we can program into the app, or will it turn out to be
+          impossible?
           <br />
           <br />
-          <b>Passing the knowledge</b>
+          <b>Q1: How does a computer screen show the color black? </b>
           <br />
-          After I came back to work, I had to explain briefly the lectures I was
-          a part of during the conference. The event took place for few days,
-          and a delegate from each day had to do a presentation during a “front
-          enders' lunch”. I was happy with the way I was able to explain
-          webpack, nuxt.js and many other things. I felt like my explanation was
-          simple enough because I was focused during the lectures and truly
-          understood what the creators of these technologies had in mind when
-          they rolled out their products.
+          This question may sound simple but turns out to be quite complex. It
+          had to be answered in order to determine if displaying a full black
+          screen is enough to keep the light sensitive materials safe in the
+          darkroom. Different devices have different screens, and each type of
+          screen shows the color black in a different way.
           <br />
           <br />
-          <b>Reflection</b>
+          Old CRT screens would show black by not sending any electrons to that
+          part of the screen. Essentialy, the black part is not “glowing” -
+          emitting any light. However we won’t find a CRT screen on any of the
+          devices that will be supported by the Analog Space app.
           <br />
-          Going to this conference was an eye-opening experience. I have
-          realized how fast is the software industry growing and how hard it is
-          to be continuously up to date with the newest trends. I decided to
-          attend more events like this in the future and learn at least one new
-          framework or programming language every half a year. As for putting
-          the knowledge I gained into use in the future, I am planning on
-          exploring more of webpack and nuxt.js to discover its advantages in
-          creating a webshop. Knowing these are helpful when creating stable
-          content fast, I feel like this might be a way to go when I finally
-          start working on a domain to sell my cameras.
+          <br />
+          There are also LCD screens where there is a light illuminating the
+          whole screen surface, and a liquid crystal layer on top of the
+          surface, which becomes more or less opaque when it is stimulated,
+          which can eventually hide the "glow”.
+          <br />
+          <br />
+          The LED screenes are constructed from multiple small LEDs, where 1 LED
+          does not equal to 1 pixel. LEDs are much larger, they can, however,
+          turn off in areas where there is no light needed, so if a large area
+          is black it can darken to a much darker level. There are still LCD
+          pixels over the top of this which can block the light from the LED
+          when it is turned on, but they cannot produce the same degree of
+          blackness as turning the LED off. Finally, we have an OLED screen. LED
+          screens produce black simply by fully closing the pixel shutter - the
+          back light is still shining (it never actually turns off) but the
+          light itself is being blocked. An OLED instead turns the pixel off
+          entirely to produce the color black, saving energy in the process.
+          <br />
+          <br />
+          <b>Q2: Is black screen light a safe light? </b>
+          <br />
+          I tried to determine the minimal amount of lumens that would
+          potentially destroy any photographic material. If a black screen of a
+          phone would emit less than that it would be considered a safelight.
+          Light meters which are popular in photohraphy and are often built into
+          cameras do not measure the amount of lumens preciselly. They serve
+          more as a guidance on how to get a perfect photo. This research could
+          be conducted with the use of a lumen meter. However, to test it, we
+          would need a darkroom. Our workspace currently operates without the
+          darkroom as the building is undergoing some changes. On top of that,
+          this trial and error process would consume a massive amount of
+          photographic materials that are now considered near extinct. I had to
+          approach this question at a different angle, finding out if a black
+          screen light could even fit anywhere on the safelight types list.
+          <br />
+          <br />
+          A safelight is a type of lighting fixture used to provide working
+          light in photographic darkrooms. By definition, the safelight is a
+          light source emitting light in an area of the spectrum that does not
+          affect the light sensitive materials for which it is designed. Below
+          is a list of safelights approved for a specific set of Kodak
+          lightsensitive materials*.
+          <br />
+          <br />
+        </p>
+        <img
+          src="https://i.ibb.co/phqp4T4/Zrzut-ekranu-2020-08-31-o-21-42-55.png"
+          style={{ width: "80%", display: "block", margin: "5vh auto" }}
+        />
+
+        <img
+          src="https://i.ibb.co/0CKJr8x/Zrzut-ekranu-2020-08-31-o-21-43-04.png"
+          style={{ width: "80%", display: "block", margin: "5vh auto" }}
+        />
+        <p style={style}>
+          After analysing the collected materials I have concluded that a mobile
+          screen, no matter what kind, could possibly become a darkroom
+          safelight with a use of a safelight filter. This safelight filter
+          would have to be of a dark-red color, and the phone’s screen
+          brightness would have to be set on low. This is a no-go, because such
+          solution is not only expensive, it also does not fit into the idea of
+          having a programmatic solution to the light emission problem.
+          <br />
+          <br />
+        </p>
+        <img
+          src="https://i.ibb.co/44pspPp/Zrzut-ekranu-2020-08-31-o-21-51-52.png"
+          style={{ width: "80%", display: "block", margin: "5vh auto" }}
+        />
+        <p style={style}>
+          <b>Conclusion</b>
+          <br />
+          “Black” in this medium means absence of light. So the better we can
+          block the light, the better the black levels. Achieving a “black
+          screen” turned out to be impossible due to different types of screens
+          that will be supported by the app. We cannot assure that the user’s
+          screen will not damage the light sensitive materials.
+          <br />
+          <br />
+          Blocking the screen with a full black display is also another problem
+          we had do consider when making safety(light)-related decisions. We
+          cannot block the notifications that come from other apps and the
+          operating system. We also cannot block the incoming calls and
+          messages. These kind of actions would result in the screen lighting
+          up, eventually causing hazard to the print/film. All of the answers
+          collected in the course of this research have led me to this
+          conclusion: it is not possible to simply block the screen from
+          emmiting light. We have to force our users to cover their screens, or
+          putting their phones below the photo sensitive material, separated by
+          high-density, light proof material.
+          <br />
+          <br />
+          [add graphic]
+          <br />
+          <br />
+          Question no.2 has raised a lot of other, interesting paths for future
+          research. Can a mobile phone screen become a safelight with a use of a
+          filter? Possibly. Such filter could not be an actual, market-available
+          filter for dakroom lightbulbs. Instead, it would have to be in a form
+          of a foil or a phone case that would persist the user touches. We are
+          unsure if there is any need for such product in the world of analog
+          photography. Analog Space will continue researching this concept after
+          the end of this project.
         </p>
       </div>
     ),
   },
   {
     id: 3,
-    title: "DIY Darkroom",
+    title: "SVGs in Hybrid Apps",
     thing: ["creativity", "global citizenship"],
-    letters: ["D", "N"],
+    letters: ["L", "AN", "J", "DOT"],
     img: "diydarkroom.jpg",
     body: (
       <div style={div}>
-        <img src={require("../images/diydarkroom.jpg")} />
+        <img src="https://i.ibb.co/6twsJH0/mycam.jpg" />
         <p style={style}>
-          <b>Inspiration </b>
-          <br />
-          I’ve been passionate about film photography for over 10 years now. It
-          all started when my uncle gave me his old Zenit 12XP, and I took a
-          first roll of film on some family event. I fell in love with film ever
-          since, and I have tried experimenting with it in many ways. For all
-          those years I was hesitating from developing film by myself. It was
-          mostly because darkrooms are still available to consumers in Poland,
-          and a cost of developing and scanning 36 photos costs there around 2-3
-          euros. Experimenting in my uncle’s darkroom at that time seemed like
-          fun, but not necessary. He had a lot of equipment and was always
-          trying to find alternative solutions to his problems, or tried new
-          chemicals to get crazy effects on his photographs. He was the one who
-          thought me to go for the unknown, to cook your roll of film in “soup”,
-          and to always be on a lookout for an “ad-hoc” solutions, because they
-          are fun and give a lot of satisfaction.
+          SVG is a short for Scalable Vector Graphics, and it’s an XML-based
+          markup language which sole purpose is to describe a 2D vector graphic.
+          SVGs are very popular among web developers because they can be scaled
+          without loosing resolution, they are quick to load and most of all –
+          the are easily interactable in the web environment. It’s not that easy
+          to achieve all of that in the context of a hybrid mobile app, but I
+          chose to use SVGs anyway. I believe there are more pros than cons in
+          the solution I have chosen. Most of the icons and photos with
+          decorators used in the Analog Space application are in this format.
           <br />
           <br />
-          <b>The struggle of film photographers </b>
+          <b>Why not raster graphics? </b>
           <br />
-          When I moved to the Netherlands, I didn’t have time for photography
-          for the first 2 years of my study. When I finally grabbed a camera,
-          and brought my roll of film to City Photo to have it developed and
-          scanned, I had a small heart attack. The price of this service in the
-          Netherlands is up to 5 times more than what I got used to in Poland. I
-          did use their services for a while, but I soon realized that I’m
-          spending too much money monthly at City Photo. That’s when I
-          remembered my uncle and his “off-road” darkroom. Together with a
-          friend of mine we invested in our first set of chemicals to develop
-          color negatives. The online instructions were all pointing us to the
-          direction of buying very expensive darkroom equipment, but we were not
-          going to settle. I knew that if developing film is a hustle for me, a
-          student, then there must be more people like me in Eindhoven and in
-          the world. Back in Poland it was easier to develop color negatives,
-          and that’s why those darkrooms are still alive and well today, because
-          they provide a high-quality service at affordable price. It’s
-          something everyone is looking for, in every sector, whether it’s a spa
-          or a restaurant.
+          The resolution / pixel density of the mobile device is is a concern
+          when building the layout consiting of raster graphics. While Flutter
+          can load appropriate image size automatically (Flutter’s Asset Image
+          is resolution-aware), it still requires a lot of work for both the
+          designer and the developer. Every vector graphic designed must be
+          exported into several different sizes that later have to be put in a
+          very strict structure, with each file carefully named according to the
+          convention.
           <br />
           <br />
-          <b>Motivation and first steps </b>
-          <br />
-          Me and Mike decided to create a darkroom out of equipment you can buy
-          at Hema and Action. The goal was not to only make film photography
-          more accessible to us, we also wanted to show others that it can be
-          fun, and can become as valuable part of the process as the actual
-          moment you’re taking a picture. Having a darkroom and a freedom of
-          processing your own film, gives you the opportunity of pushing,
-          pulling and doing all sorts of manipulation on the negatives. It took
-          us some time to get acquainted with the process enough to start
-          hosting weekly meetups. After around 2 months of experimenting by
-          ourselves, we invited first people over to develop the film at Mike’s
-          house. It was a great success, and we saw people being happy with the
-          results. With our own money we’ve invested in a professional scanner,
-          and now we are capable of providing all services available at City
-          Photo, for half the price, with more customization, and of much higher
-          quality.
         </p>
-        <img src={require("../images/diyd.jpg")} style={{ height: "55vh" }} />
+        <img
+          src="https://i.ibb.co/CnFkXmj/Zrzut-ekranu-2020-09-8-o-17-09-21.png"
+          style={{ height: "20vh" }}
+        />
+
+        <p style={style}>
+          This structure, while easy, is usually resulting in a lot of manual
+          file renaming. Designers give off raster graphics with the pixel
+          density in the file name, as having three files of the same name and
+          extension in one folder is not possible. For a larger project, that
+          results in a lot of time wasted. Yet another reason for not using this
+          solution are...
+          <br />
+          <br />
+          <b>Benefits of using SVGs</b>
+          <br />
+          <br />
+          <b>1. Saving space </b>
+          <br />
+          <br />
+          The first and main advantage of using svg’s is the decreased amount of
+          space used for the assets folder in our app. Not only we don’t need to
+          load each file up to 5 times and create all the folders necessary to
+          satisfy the AssetImage requirements, the svgs themselves weight less
+          compared to just one of those .png resources. In
+          <a
+            href="https://vecta.io/blog/comparing-svg-and-png-file-sizes"
+            style={{ padding: "0px 5px" }}
+          >
+            this
+          </a>
+          research Vecta made extensive comparison of file sizes, depending on
+          different variations of pngs and svgs. Even the most compressed,
+          optimised PNG files cannot match an SVG. Embedded fonts and compound
+          paths and fills can of course increase the file size. This problem can
+          be omitted (according to Vecta) with the use of the Nano SVG
+          optimizer. Here are some interesting foundings from that research:
+        </p>
+
         <p style={style}>
           <br />
           <br />
-          <b>Experimenting </b>
-          <br />
-          The first experiment me and Mike did was to use the alternative
-          process for C-41. Usually the development is done at around 38
-          degrees, but since we didn’t have a professional heater we went for
-          lower temperature. After that was a success, we’ve decided to push
-          film, which means that the negative is soaking in the bleacher for
-          longer than usual, to make the photos lighter. It was all great fun
-          and we got interesting effects out of it. A friend of ours who is
-          using our darkroom, has cooked his film in white wine and salt,
-          creating crazy dissorted images. It’s something that got me inspired
-          and I would love to try it myself. In the upcoming weeks I’m planning
-          to create my own film soup, following this tutorial:
-          https://shootitwithfilm.com/film-soup-tutorial/.
+          With or without text, SVG images trumps PNG images on all counts. With
+          Nano SVG optimizer, file sizes are very small and yet allow users to
+          have a simplified workflow that will render extremely well under all
+          resolutions. Assuming you have the 3 images above on your site, and
+          you have 10,000 hits on each image, with 50% of them normal
+          resolution, 40% 2X and 10% 3x resolution. If you use PNG:
           <br />
           <br />
-          <b>Impact </b>
+          &middot; Simple image: 5000 * 6.33KB + 4000 * 11.5KB + 1000 * 16.9KB =
+          94.5KB
           <br />
-          The feedback we got was great, it was so rewarding to see that our
-          assumptions were all correct. People in fact were bothered by the
-          commercial prices, and the quality of scans provided by the
-          “photography giants”. The fact that we added a fun factor, and gave
-          our guest the freedom of being creative with their process, is making
-          our darkroom more and more attractive to film enthusiasts. Now that I
-          know what is bothering people about the state of film photography, I
-          can do much better to improve the experience of the analog media
-          enthusiasts.
+          &middot; Complex image: 5000 * 56.3KB + 4000 * 146KB + 1000 * 249KB =
+          1114.5KB
+          <br />
+          &middot; Image with text: 5000 * 12.0KB + 4000 * 26.5KB + 1000 *
+          42.6KB = 208.6KB
           <br />
           <br />
-          <b>Plans </b>
+          A use of svg optimizer can be justified in a case the assets were
+          given off from an unreachable designer, and they cannot be re-saved at
+          the moment. Even then, if the developers have a licence for Adobe
+          Illustrator, they should be able to achieve similiar effects without
+          any design knowledge. The desirable effect being a maximally
+          compressed SVG file.
           <br />
-          The next step I want to take is to extend my darkroom with black and
-          white chemicals, and to create a workshop in which we’ll create our
-          own chemicals with the use of cheap rose whine, vitamin c and freshly
-          grounded coffee. I’m looking forward to see how my friends, and the
-          darkroom ‘newcomers’ play around with those, and what kind of effects
-          we’ll get out of it. It’s great to see that the service me and Mike
-          provide makes people more creative and allows them to take more photos
-          than they usually would, when they had to save their money for the
-          pricey process of the negatives.
+          <br />
+          One thing Nano does well is it compresses the complex text path. In my
+          personal belief, it’s in a way barking at a wrong tree. If a designer
+          handed off a file where the text and compound shapes are not expanded,
+          the asset should be rejected until an appropriate file is sent. An SVG
+          that is saved in a wrong way can cause a lot of issues, as I will
+          describe in the further section of this article.
+          <br />
+          <br />
+          I decided to make my own experiment to see how the file size will
+          change depending on the variation of saving settings and content
+          prepping. What is content prepping in this case? A designer should
+          hold two vector files – one, an editable .ai file and one optimized
+          .svg file where all complex shapes and text is expanded. The main
+          thing is that once the object no longer holds it’s editable
+          properties, it takes up a whole less space. Here is the proof.
+          <br />
+          <br />
         </p>
+        <img
+          src="https://i.ibb.co/s60CDdr/Zrzut-ekranu-2020-09-8-o-20-32-07.png"
+          style={{ height: "20vh" }}
+        />
+        <p style={style}>
+          <br />
+          I created three artboards, and created a very simple design. As a base
+          I have two rectangles, with a fill and an outline. The second box has
+          the text, in it’s editable form. The designer still has a chance to
+          change the font, size, letter spacing, etc. In that box the base is
+          also in the editable form. The third box has all the objects in the
+          artboard expanded.
+          <br />
+          <br />
+          Expanding all objects in Adobe Illustrator is as simple as doing
+          Ctrl+A and then going to object->expand... It only takes a few seconds
+          and the impact it has on the file size is remarkable. This should be a
+          standard, but from my experience as a web and mobile developer I know
+          that the vector files I got from a designer often required extra work
+          from me. From the other hand, some of the best platforms for designers
+          to compete at, such as 99designs, require the artwork to be submitted
+          in it’s expanded form at all times. Seeing the results of my small
+          experiment made me realise that expanding all objects is the way to
+          go.
+          <br />
+          <br />
+        </p>
+        <img
+          src="https://i.ibb.co/GJm3vgT/Zrzut-ekranu-2020-09-8-o-20-31-42.png"
+          style={{ height: "20vh" }}
+        />
+        <p style={style}>
+          <b>2. Interactivity </b>
+          <br />
+          <br />
+          Given the text-based nature of scalable vector graphics, one can open
+          them in any text or code editor. The XML markup might seem a bit
+          unreadable at first, but with the correct formatting, any svg can
+          become a readable string. The SVG consists of simple tags which are
+          ordered in a logical manner. That is making the svg interactive. In a
+          web context we often see svg actions such as change of color,
+          movement, scaling, after an event was trigger – like a hover or
+          onclick. HTML5 has an svg tag and a web developer can use the
+          interactive properties of an svg through CSS.
+          <br />
+          <br />
+          SVG graphics open doors to animations and interactive content that was
+          simply not possible with raster images. The Analog Space app will have
+          a lot more animations and interactivity added after the main features
+          are satisfactionary. The profile page will have an svg world map which
+          will change the country color if the user have tagged a photo in that
+          location. This may not be incorporated in the first version, but will
+          definitely be built before the release. Because we plan on doing all
+          these things, we had to find a nice way of using the interactive
+          possibilities of svg in flutter.
+          <br />
+          <br />
+          <b>Challenges </b>
+          <br />
+          <br />
+          First challange was that Flutter doesn’t come with an SVG support out
+          of the box. I had to use an extra library in order to load my svgs
+          into view. The best and well known solution to this problem is using
+          the flutter_svg dart package. This library, while it’s solving the
+          primary issue of how to load the svg asset into the view, it’s also
+          creating other problems. The todo and out of scope list of this
+          package is quite extensive. Meaning one will find it nearly impossible
+          to do any of the things from that list. That will require writing
+          extra code, and/or trearing the svg as a string, manipulating it, and
+          loading into view in it’s new (text) form.
+        </p>
+
+        <img
+          src="https://i.ibb.co/m4H5Lfy/Zrzut-ekranu-2020-09-9-o-16-45-49.png"
+          style={{ width: "45vw" }}
+        />
+
+        <img
+          src="https://i.ibb.co/MMfXJj7/Zrzut-ekranu-2020-09-8-o-21-53-14.png"
+          style={{ width: "45vw" }}
+        />
+
+        <img
+          src="https://i.ibb.co/7gdcbq8/Zrzut-ekranu-2020-09-8-o-21-53-24.png"
+          style={{ width: "45vw" }}
+        />
+        <p style={style}>
+          <br />
+          <br />
+          Exporting my svg assets took quite some time. After installing the
+          above mentioned package I thought I am just one step away from loading
+          my vector icons into a mobile app screen. I was very suprised to find
+          out all my icons had to be re-saved. One of the main issues of this
+          package is that it does not support inline styles. For people who
+          don’t have a software licence for a graphic program such as Adobe
+          Illustrator, using a program such as SVGCleaner seems to be a right
+          solution. More can be read in this git issue:
+          <a
+            href="https://github.com/dnfield/flutter_svg/issues/105"
+            style={{ padding: "0px 8px;" }}
+          >
+            link
+          </a>
+          <br />
+          <br />
+        </p>
+        <img
+          src="https://i.ibb.co/PzSygBR/Zrzut-ekranu-2020-09-8-o-21-32-01.png"
+          style={{ width: "45vw" }}
+        />
+        <img
+          src="https://i.ibb.co/x3nGVS1/71539342-00310300-2961-11ea-817c-fd170787dcf4.jpg"
+          style={{ width: "45vw" }}
+        />
+        <img
+          src="https://i.ibb.co/rvKCrkn/71539344-07f0a780-2961-11ea-95c9-755a84aa7087.jpg"
+          style={{ width: "45vw" }}
+        />
+        <p style={style}>
+          <br />
+          <br />
+          To avoid the error all svg assets must be saved without inline css
+          style. That actually comes in hand later on, when we choose to
+          manipulate the svg as a string. It’s important to note SOME
+          interactivity can already be achieved with this package. We could
+          achieve changing the color of an svg on tap. However, that could only
+          be applied to the whole vector, not a single element from it. The
+          package doesn’t understand tags. Tag id’s are coming from the program
+          where the design is created. In my examples below they are teh default
+          values in polish. That can be adjusted later on in the text editor.
+          Each layer has their own tag with a corresponding id. These id’s are
+          mentioned in the css style. By manipulating these values as text we
+          can go much further than changing the color of only a whole icon. We
+          can manipulate things such as image fills, text values, outline widths
+          and colors.
+          <br />
+          <br />
+        </p>
+        <img
+          src="https://i.ibb.co/j3Zxd7t/Zrzut-ekranu-2020-09-8-o-22-09-11.png"
+          style={{ width: "45vw" }}
+        />
+        <img
+          src="https://i.ibb.co/r4SnCV6/Zrzut-ekranu-2020-09-8-o-22-10-53.png"
+          style={{ height: "25vh" }}
+        />
       </div>
     ),
   },
   {
     id: 4,
-    title: "Reacting to Wolfpack",
+    title: "Engineering Chemistry",
     thing: ["technology"],
-    letters: ["J"],
+    letters: ["AN", "J", "AD", "D", "I", "DOT"],
     img: "wolfpack.jpg",
     body: (
       <div style={div}>
-        <img src={require("../images/it.jpg")} style={imgs} />
+        {/* <img src={require("../images/it.jpg")} style={imgs} /> */}
         <p style={style}>
-          After the Vue.js conference I felt very inspired and excited to
-          explore new frameworks for web development. It’s a subject that used
-          to be very close to me, but being focused on my job as a mobile app
-          developer I sort of forgotten about it. When my contract was finishing
-          and it was time to look for a new job, I decided to put myself out of
-          the comfort zone.
+          <b style={{ fontSize: "4vh" }}>Problem definition & judgement </b>
           <br />
           <br />
-          Some people may say it takes a lot of guts to apply for a job without
-          any experience in the given field, claiming you can learn anything on
-          the go. That’s exactly what I did when I applied for a position as a
-          React developer at WolfpackIT in Eindhoven. I went for an interview
-          and was soon given an assignment, based on which I was supposed to be
-          assessed later. They gave me a lot of freedom and I was able to do
-          whatever I was comfortable with, as long as my work fits the
-          requirements.
+          The idea of creating a film processing tutorial in a mobile app came
+          when me and my business partner started developing film together back
+          in 2017. I purchased a Tetenal C41 Color kit in May 2017, but didn’t
+          manage to develop any film up until late August that year. The reason
+          was that the manual attached to the kit I purchased was not clear
+          enough. Not only the instructions were presented in a format that I
+          was no fimiliar with, it also lacked crucial information about
+          developing film alone at home for the first time. I aked Mike for help
+          and together we launched an extensive online research about this kit,
+          trying to gather information that will lead us to our first
+          successfull film development. This was very time consuming and could
+          at times be frustrating. Once again, the materials we were finding
+          online were presented in an outdated format. We were expecting a clear
+          set of instructions, description of each consecutive step, rather than
+          many different ways we can interpret the weird development times table
+          given in the original manual. That’s when we first had the idea of
+          presenting these instructions in a more modern, hustle-free way.
           <br />
           <br />
-          I decided to challenge myself and develop a website using React. It
-          was something I was quite familiar with, because on every-day basics I
-          was creating apps using React Native, which is based on top of – you
-          guessed – React. The problem is I have never actually written react in
-          a non-mobile context and I have never deployed a single website that
-          was running on React. I put in some time to fill in the gaps in my
-          knowledge and I made sure I delivered the best web app possible to
-          Wolfpack, both look-wise and code-wise.
+          Now, few years later we are running our own lab and we have gained a
+          lot of experience developing various types of film with different
+          kits. Some were meant for amateurs, some are only meant for
+          proffessional use. All of this collected knowledge has led Analog
+          Space to realisation about these unclear user manuals in chemistry
+          kits for film development. The reasons why these brochures are so hard
+          to understand are because:
           <br />
           <br />
-          After looking at several React tutorials, I realized the code is very
-          similar to what I already know, and it’s a matter of copy-adapt-paste
-          to create usable solutions. I structured my page according to the
-          official documentation and I made sure every bit of code I wrote was
-          as efficient as it could be, with the use of design patterns and
-          “dumb/smart” components. I was overall very happy with the code I
-          delivered. The illustrations and icons used on the website were
-          created in the hurry, but I’m still satisfied with presenting
-          something that’s original. Below is the landing page of my web app. 
+          &middot; even amateur kit manuals are meant for people that have
+          experience with chemistry
+          <br />
+          &middot; if the kit manual presented its full capabilities it would
+          become even more complex
+          <br />
+          &middot; the manual isn’t concerned about the user's setup and it’s up
+          to them to research how the times given in the manual have to be
+          adjusted given the way they plan on processing their film
+          (manual/auto/cold)
           <br />
           <br />
-        </p>
-        <img src={require("../images/wolfpack.jpg")} style={imgs} />
-        <p style={style}>
-          {/* add photo */}
-          After delivering the project I was offered a job, for which I didn’t
-          even apply for. Once again my life has taken a wild turn. Because the
-          work I did was timed, I had shown to them I am capable of learning
-          something new in a matter of hours. That has led to Wolfpack offering
-          me a job as a Flutter developer. Flutter is a new framework used for
-          hybrid mobile app development, owned by Google. I am very excited to
-          become a part of their team and start learning something new. I am
-          also very satisfied with the outcome of my work and that I was able to
-          reach my goal of exploring new technology. I hope to keep this
-          attitude in the years to come.
+          I believed all these issues will no longer exist in a context of a
+          well-built mobile app that has massive amount of reliable data on
+          which I can build a dynamic film processing tutorial. Here is how
+          these issued are tacked in a mobile app context:
+          <br />
+          &middot; The tutorial would not require any previous knowledge on
+          chemistry or developing film, no tables with raw data would be
+          presented to the user, instead it will be text/commands based
+          <br />
+          &middot; The tutorials will show full capabilities of each kit without
+          confusing the user – he will not have to adjust any step of the
+          process manually depending on their setup. Instead, correct tutorial
+          steps will be presented to him or her based on their setup
+          information, amount of film rolls, and chosen temperature.
           <br />
           <br />
-          Now that I have seen that trying out new tech is something you can do
-          overnight; I have planned to learn about static site generators before
-          I start my job at Wolfpack. One thing I have in mind is Gatsby, as
-          I’ve heard several people mention it, at work and in my social circle.
-          Maybe I will be able to learn more than one new programming language
-          or framework every half a year! I’m looking forward to see where this
-          approach will lead me. Getting a new job at Wolfpack is just a start.
-          {/* add linkedin */}
-        </p>
-        <img style={imgs} src={require("../images/linked.jpg")} />
-      </div>
-    ),
-  },
-  {
-    id: 5,
-    title: "GATSBY",
-    thing: ["technology"],
-    letters: ["K", "L"],
-    img: "wolfpack.jpg",
-    body: (
-      <div style={div}>
-        <img src={require("../images/gatsbya.jpg")} style={imgs} />
-        <p style={style}>
-          <b>Why did I learn Gatsby.js?</b>
-          <br />
-          After getting my new job at Wolfpack I felt eager to learn more of the
-          new, exciting stuff in the software world. I gave myself a challenge
-          of learning something about a static site generator. I say something
-          because at this point, I really didn’t know anything about it. All I
-          knew is that Gatsby is the new hot thing in the industry, and if you
-          want a fast one pager website that is the preferred solution at the
-          moment. I also knew that Gatsby was using React, a framework I learned
-          for my assessment project at Wolfpack, so this was supposed to be
-          learning something new and exploring one subject a bit further.
+          <b style={{ fontSize: "4vh" }}>DOT Framework: Field</b>
           <br />
           <br />
-          <b>The process</b>
+          The application Analog Space has invisioned is a mix of social media
+          dedicated to analog photographers together with a virtual ‘darkroom’ -
+          the place where all resources and help for film processing can be
+          found. Before we could start designing and implementing our
+          application making the ‘social media’ and the ‘virtual darkroom’ its
+          main components we had to justify our choice. I, as the project
+          leader, had to do a field research in order to establish few things:
           <br />
-          I started off my process as I usually would – by reading the official
-          documentation, which can be found here:
-          https://www.gatsbyjs.org/docs/. I found the documentation to be very
-          clear, but also vague in some sections. That’s why I decided to also
-          follow a series of tutorials about Gatsby on Youtube, which can be
-          found of LevelTuts channel. After all of this I finally understood
-          what Gatsby is, and what does a static-site generator actually means.
-          So, what it does really is it has everything ready for the user the
-          moment he or she is requesting access to a page. Therefore, when the
-          user navigates, or clicks something that requires for example an image
-          to be loaded, in this scenario the image will be served immediately,
-          because it’s “pre-fetched”. Having all this knowledge I was ready to
-          set up a new project and start coding.
+          &middot; Is there a need for social media for analog photographers,
+          and why?
           <br />
+          &middot; Do people have interest in developing film at home?
           <br />
-          Setting up the project can be a little scary, especially when I am
-          starting to use a new language or a tool. A lot of operations are done
-          using a console, and it doesn’t have the most friendly feel. Once
-          again youtube was helpful, especially this tutorial:
-          https://www.youtube.com/watch?v=b2H7fWhQcdE .
+          &middot; Those that already develop film – do they know the full
+          flexibility of their preferred kit?
           <br />
+          &middot; What kits are most popular locally and globally? (The most
+          popular kits will be supported by the application)
           <br />
-          After setting up the project I got to look at the structure of the
-          files and started writing the code. It all came very natural because
-          of the preparation I gave myself. Whenever I was unsure of something,
-          I was looking at the official documentation of Gatbsy, and most of the
-          times I could find answers to my problems there. After only a day I
-          have created a simple website for a beauty salon, with photo gallery
-          and sticky navigation. Developing with Gatsby is fast and it makes
-          your website fast, so there are at least two great reasons for every
-          web developer to try it out. The website (still under construction as
-          this is a real, paid project) is temporarily hosted at:
-          https://zen-perlman-c25e51.netlify.com .
+          &middot; Would people use our app?
           <br />
-          <br />
-        </p>
-        <img src={require("../images/beautyb.jpg")} style={imgs} />
-
-        <p style={style}>
-          {/* add photo */}
-          <b>Reflections</b>
-          <br />
-          In the future I am planning on using Gatsby for creating a simple
-          single-page website, that can act as fronts for beauty salons,
-          restaurants, playhouses and many others. The coding part is just
-          nearly effortless, as simple and easy as programming gets. This
-          project is owned by BeautyBar Kyara, and I will be carrying it out
-          fully, including hosting it on an actual domain. I thing learning how
-          to host a website built with Gatsby will be another useful thing to
-          know. I can only hope this process will be as fast and easy as the
-          rest of experience I had so far.
-          <br />
-          <br />I believe that static-site generators are a great new thing is
-          web development world, and it’s important to hop on this train as soon
-          as possible. In few years every website might be static-site
-          generated, and my career won’t be so great if I don’t know what
-          static-side means. Learning Gatsby was only the first step in becoming
-          an aware, keeping up-to-date web developer. I hope to always know what
-          people around me are talking about, and if I don’t, I will learn that!
-        </p>
-      </div>
-    ),
-  },
-  {
-    id: 6,
-    title: "Organized chaos",
-    thing: ["identity", "global citizenship"],
-    letters: ["A", "B", "N"],
-    img: "breaking.jpg",
-    body: (
-      <div style={div}>
-        <img src={require("../images/chao.jpg")} style={imgs} />
-        <p style={style}>
-          <b>Intro</b>
-          <br />
-          Going in front of many people to make a presentation is not an easy
-          thing. For me it all depends on the topic I’m supposed to discuss, but
-          most of the times I feel quite ok with presenting in front of a crowd.
-          I’ve been told many times that I present well, I think mostly because
-          I always try to speak what I know and keep it short and simple.
-          <br />
-          <br />
-          <b>Failed Groowmoments</b>
-          <br />
-          As a part of Future Solutions the whole minor was required to give a
-          series of presentations about our project and the progress in each
-          sprint. The task seemed simple, but still I struggled. I missed two of
-          my presentations and had to give them after the deadline to limited
-          amount of people. The feedback I was getting was mostly critical and I
-          couldn’t understand why is nobody getting what I’m doing. The project
-          I was doing for Future Solution is related to photography and
-          everything I am passionate about in my life. I thought it will be easy
-          to carry my message across, but my presentations were not landing. I
-          realized that for the first time I am not explaining something that
-          has already been done, but instead I have to in a way sell my own,
-          personal creation, that only IS in my mind.
-          <br />
-          <br />
-          <b>Time for change</b>
-          <br />
-          After two presentations I decided to change the way I was presenting.
-          Instead of a very loose presentation I have decided to give my
-          presentation some structure. Only some, as it still had to represent
-          me, and I am in a way chaotic an “all over the place”. I decided to
-          explain to my audience why am I doing the project, and then focus on
-          the 2 products I was creating. The rest, the how’s and the groowtool
-          kits could wait, as I felt this was more important at the given
-          moment.
-          <br />
-          <br />
-          <b>Process</b>
-          <br />
-          The presentation I gave was very personal. It explained my love to
-          photography, which I have brought from my family house. For some time
-          in my life I tried to make living out of taking photos, and it made me
-          dislike digital photography because of the overall ‘quality over
-          quantity’ feeling it was giving me. The product I am creating for my
-          Future Solutions is supposed to make people plan their photos, which
-          can result in better quality content for all of the people on social
-          media and other online platforms. The world wide web is just trashed
-          with the same selfie in billion versions, and it’s about the time
-          someone does something about it. Couple of months ago I heard someone
-          on TV saying to unfollow all social influencers and instead subscribe
-          to true creators, artists, and people that you find inspiring. Doing
-          this have changed the way I see the world now, and have filled my
-          everyday life with a lot of positivity. I can’t recommend it enough,
-          and I hope that my camera add-ons will contribute to the creative
-          society of the world!
-          <br />
-          <br />
-          <b>Feedback</b>
-          <br />
-          The feedback I got after presentation was exactly what I wanted to
-          hear. I was very glad that I finally explained my vision to others in
-          a clear and understandable way, while still being myself. I learned
-          that my approach of speaking from the heart was always good, but some
-          presentations require special preparation and a lot of concepting.
-          Thinking this presentation through gave me a clearer image of myself
-          and my intentions. In the long run I think this will make me a more
-          self-aware human, which is something everyone needs and pursues. I
-          will approach more presentations this way and I hope to find out even
-          more about myself through it. And even though structure is not my best
-          friend, it is necessary. I will invite more planning into my life,
-          especially for my graduation project. This experience also showed me
-          that not everyone will always get my intentions, and especially in a
-          multicultural setting thing must be explained clearly. I think this
-          will improve my presentation skills and the general attitude I have
-          forwards working in groups.
-        </p>
-        <img style={imgs} src={require("../images/feed.jpg")} />
-      </div>
-    ),
-  },
-  {
-    id: 7,
-    title: "Mindtrack",
-    thing: ["creativity", "entrepreneurship", "identity"],
-    letters: ["C", "E", "I"],
-    img: "mind.jpg",
-    body: (
-      <div style={div}>
-        <img style={imgs} src={require("../images/mind.jpg")} />
-        <p style={style}>
-          <b>Intro</b>
-          <br />
-          As our project for the third sprint during the minor we we’re
-          separated into groups to work on solution that could improve the lives
-          of a given target group. I was working with four girls and we were
-          assigned seniors as our target group. The challenge was to create
-          something resolving around IoT – Internet of Things, that the seniors
-          would actually find useful and usable.
-          <br />
-          <br />
-          <b>My goals</b>
-          <br />
-          I wanted to learn how to work in a result-oriented team and respect
-          everyone’s ideas. It has come to my attention lately that I got very
-          used to working by myself, mostly due to the nature of my previous job
-          at ISAAC. I worked alone there on an app and had total freedom. It’s
-          making it hard for people around me be to be heard and I wanted to
-          fight with that, and make feel everyone included.
-          <br />
-          <br />
-          <b>Group brainstorming</b>
-          <br />
-          I didn’t go to the interviews, but I read carefully through what my
-          teammates have learned from their visit to the seniors. We all agreed
-          that most of our target group takes daily medications and we wanted to
-          work with that. I was pretty stuck on the idea of a smart pill box,
-          and I tried communicating that to my group. In the end I stepped down,
-          because the girls came up with a much better and innovative solution.
-          The fact that we all agreed and were respectful forwards each other
-          have made my team very strong and motivated. We created an app called
-          MindTrack, which combined with a smart pill box can monitor the state
-          of user’s mental health by counting the times he forgets to take his
-          pill. I worked on the app and the rest of the team worked on the
-          prototype of the pill box, together with promotional thing such as
-          posters and videos. We also worked together on the name and logo of
-          the app, and the project went through couple of user interface
-          designs.
+          &middot; To answer these questions I made use out of all the facebook
+          groups Analog Space moderates or is a part of. Here is a list of them.
           <br />
           <br />
         </p>
         <img
-          style={{ height: "30vh" }}
-          src={require("../images/logoTEC.png")}
+          src="https://i.ibb.co/SKQpRgG/Zrzut-ekranu-2020-10-4-o-16-58-06.png"
+          style={imgs}
         />
-        <p>First logo</p>
-        <img style={{ height: "30vh" }} src={require("../images/logo1.png")} />
-        <p>Second logo</p>
-        <p style={style}>
-          <b>Reflection on my limitations</b>
-          <br />
-          I’m very happy that I understood my limitation, and that I was able to
-          work around it. I can let others speak and feel included at the same
-          time. Working in a group requires a lot of patience and open-mindness.
-          I’d like all my future projects to be so effortless as this one, and I
-          hope to keep this attitude. The experience I got from the Meaningful
-          Challenge will surely be needed when I start my new job at Wolfpack,
-          where I will have to become a team player. I have also learned that
-          it’s always good to review alternative, or even completely abstract
-          ideas, at least to get a new perspective. I will include and value
-          other’s opinions when it comes to my projects, such as Breaking Film,
-          or Future Solutions.
-          <br />
-          <br />
-        </p>
-        <iframe
-          width="560"
-          height="315"
-          src="https://www.youtube.com/embed/VpsndPVJsOU"
-          frameborder="0"
-          allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen
+        <img
+          src="https://i.ibb.co/R0dfyzW/Zrzut-ekranu-2020-10-4-o-16-58-15.png"
+          style={imgs}
+        />
+        <img
+          src="https://i.ibb.co/GVXdLtH/Zrzut-ekranu-2020-10-4-o-16-58-23.png"
+          style={imgs}
+        />
+        <img
+          src="https://i.ibb.co/1QCN0Bh/Zrzut-ekranu-2020-10-4-o-16-58-42.png"
+          style={imgs}
         />
         <p style={style}>
-          <b>Showtime!</b>
-          <br />
-          We were supposed to present the outcome of our project on an expo. I
-          would normally offer to create a presentation, or maybe a video of the
-          app to present our work. We already had very nice posters created by
-          Ilana. I decided to wait before offering to do the presentation to see
-          how the rest of my group would like to express our process to the
-          audience. We knew they would only stay around our station for a couple
-          of minutes, so it couldn’t be anything too complicated. Estephany has
-          decided to create an animation to explain and promote our product. I
-          was very happy with it and the people that came around our station
-          have complimented it many times. That has thought me that a visual aid
-          such as a video or animation, can be a much more effective way of
-          expressing one’s process and I hope to incorporate that in my future
-          projects and ventures. Me and Mike would like to create a video to
-          promote our Breaking Film group.
+          I shared a survey with these groups and managed to get 44 people to
+          answer all my questions. I unfortunately could only post this survey
+          on each of the groups once, and pin it on the groups we moderate.
+          That’s because posting the same thing several times in the mentioned
+          groups is against their rules – the post will not be accepted by the
+          moderator. Having this in mind, I wasn’t expecting more than 50 people
+          to attend my survey, therefore I am satisfied with the 44 people who
+          did answer my questions. And the questions I asked were:
           <br />
           <br />
-          <b>Feedback</b>
+          1. Do you use instagram?
           <br />
-          When the day of the expo came, I was quite excited to see how others
-          view our project. Several people have pointed out that the app is
-          great because its stakeholders are not only the people with memory
-          loss problem, but also people around them, like their family and
-          caretakers. The highlight of that day was seeing grandparents of our
-          colleague intrigued with our app. They even asked if it’s on App
-          Store! This experience has thought me that it’s always important to
-          validate your solution in the appropriate context. The fact that we
-          included our target group, by interviewing and showing them the
-          outcome of our work, has proven to us, that we have crafted a solution
-          to a problem that is often overseen. I plan on including target groups
-          in my future projects, especially during the Future Solutions.
+          2. How easy is gaining audience as analog photographer on social media
+          platforms? (rate from 1 to 10)
+          <br />
+          3. How do you gain new followers?
+          <br />
+          4. Would you use a social media platform dedicated to analog
+          photography only?
+          <br />
+          5. Do you develop your own film?
+          <br />
+          6. Which process do you use?
+          <br />
+          7. Which kit do you use?
+          <br />
+          8. Do you find it hard to figure out the correct development process
+          for your setup given the standard kit instructions?
+          <br />
+          9. Would you use a film processing tutorial on your phone?
+          <br />
+          10. Do you know alternative processing guidances for the kit you use?
+          <br />
+          11. Did you ever develop film with semi-stand method?
+          <br />
+          <br />
+          Here are a few examples of answers I got:
+        </p>
+        <img
+          src="https://i.ibb.co/8xY0n9S/Zrzut-ekranu-2020-10-3-o-16-06-31.png"
+          style={imgs}
+        />
+        <img
+          src="https://i.ibb.co/x2TCm6q/Zrzut-ekranu-2020-10-3-o-16-06-44.png"
+          style={imgs}
+        />
+        <img
+          src="https://i.ibb.co/jk24sSH/Zrzut-ekranu-2020-10-3-o-16-06-51.png"
+          style={imgs}
+        />
+        <img
+          src="https://i.ibb.co/G0V407T/Zrzut-ekranu-2020-10-3-o-16-07-01.png"
+          style={imgs}
+        />
+        <p style={style}>
+          Tu summarize, these are the conclusions I drew from this survey:
+          <br />
+          <br />
+          &middot; Majority of analog photographers use Instagram to share their
+          work but they find it hard to gain new followers there. They usually
+          make use of other platforms to draw attention to their profiles on
+          this platform. Very popular answer for “how do you gain new followers”
+          was “though film facebook groups”. That itself prooves that the issue
+          both of our co-funders have with Instagram is a valid problem and we
+          are not the only ones struggling to find a bigger audience for our
+          work on Instagram. Analog Photographers are not presented with any
+          modern alternative to this app, but if there was one, they would most
+          probably use it.
+          <br />
+          &middot; People who develop their own film usually develop in the
+          color C41 process using the Tetenal kit. This kit had significant lead
+          and we have chosen it for a primary chemistry kit we will support. We
+          ran an extensive research on the flexibility of this kit to present
+          our users with every possible, reliable way this kit can be used with
+          satisfactionary results.
+          <br />
+          &middot; People who develop their own film or tried to find the
+          manuals attached to the kits very hard to understand.
+          <br />
+          &middot; People who develop their own film with the use of any starter
+          kit are not aware of alternative processes available for them.
+          Majority had no idea about possible semi-stand process for every kit.
+          Semi-stand process is a development ran in cold temperature that spans
+          over several hours. This process is never included in any manual, but
+          can be achieved in any kit we plan on supporting.
+          <br />
+          <b style={{ fontSize: "4vh" }}>Lab – Tetenal Kit research </b>
+          <br />
+          <br />
+          <br />
+          In order to reflect the Tetenal Kit’s full flexibility in our app
+          extra research had to be done. At the begining of this project Analog
+          Space have changed the primary chemistry from the Tetenal Kit to the
+          Kodak Flexicolor solutions. The kit that’s currently in use at our
+          company is not popular among amateurs so together with the main
+          stakeholder, Michal Czorniej, we decided not to support it. I planned
+          on making this lab research at Analog Space, however this was not
+          possible due to several reasons:
+          <br />
+          1. It would be very expensive
+          <br />
+          2. It would be very time consuming
+          <br />
+          3. It would be wasteful
+          <br />
+          I concluded that the best way to make this lab research was to
+          outsource it to our lab friends from across the world who happen to
+          use the Tetenal Kit. The goal was to get a set of times that assure
+          successfull process. Our “lab rats”, to which Analog Space is very
+          grateful, conducted the lab research for us by switching up their
+          development process while operating their business as usual. Thanks to
+          James Lane (Zone Imaging Lab from UK) and Skibek Plocki (independent
+          film lab in Poland) I obtained this raw data that became crucial
+          during implementation of the film processing tutorial.
+          <br />
+          <br />
+        </p>
+        <img
+          src="https://i.ibb.co/TmVSZnS/Zrzut-ekranu-2020-08-25-o-21-25-29.png"
+          style={imgs}
+        />
+        <img
+          src="https://i.ibb.co/9TZyzD4/Zrzut-ekranu-2020-08-25-o-21-25-01.png"
+          style={imgs}
+        />
+        <p style={style}>
+          <br />
+          <br />
+          <b style={{ fontSize: "4vh" }}>Realisation</b>
+          <br />
+          <br />
+          After gathering and analyzing all of the survey’s answers I’ve moved
+          on to a lab research. First, I established that the working (partial)
+          product I am trying to deliver will support the most popular kits from
+          the field research. I decided to begin with supporting these three
+          kits to a specific extent: Tetenal C41 Color Kit – provide full
+          support for this kit, expand the processing options from the manual
+          with alternative processes (extra research) Rollei Cinestill Color
+          Simplified 2-step bath My research began by gathering raw data on
+          processing for each of these kits manuals. I then translated these
+          manuals into a sequence of decisions and instructions. I found
+          overlapping patterns and this way I ended up with the activity diagram
+          that describes the tutorial process from the user’s perspective.
+          <br />
+          <b>step 1: gather and analise the raw data from each kit</b>
         </p>
 
-        <img style={{ height: "55vh" }} src={require("../images/app1.jpg")} />
-        <img style={{ height: "55vh" }} src={require("../images/app2.jpg")} />
-        <img style={{ height: "55vh" }} src={require("../images/app3.jpg")} />
-      </div>
-    ),
-  },
-  {
-    id: 8,
-    title: "3D Printing + Photography",
-    thing: ["creativity", "technology"],
-    letters: ["F", "K"],
-    img: "",
-    body: (
-      <div style={div}>
-        <img style={imgs} src={require("../images/sprocket.jpg")} />
+        <img
+          src="
+          https://i.ibb.co/HpjHgQ4/Zrzut-ekranu-2020-10-4-o-17-12-23.png
+          "
+          style={imgs}
+        />
+        <img
+          src="
+          https://i.ibb.co/yNFzC9H/Zrzut-ekranu-2020-10-4-o-17-12-28.png
+          "
+          style={imgs}
+        />
+        <img
+          src="
+          https://i.ibb.co/m4JXjNV/Zrzut-ekranu-2020-10-4-o-17-12-48.png
+          "
+          style={imgs}
+        />
+        <img
+          src="
+          https://i.ibb.co/wY10shQ/Zrzut-ekranu-2020-10-4-o-17-12-57.png
+          "
+          style={imgs}
+        />
+        <img
+          src="
+          https://cdn.shopify.com/s/files/1/0339/5113/products/CS41_pint_qt_gal_page2_1024x1024.jpg?v=1600383124
+          "
+          style={imgs}
+        />
+        <p style={style}>
+          <br />
+
+          <br />
+          <b>step 2: break it down into steps</b>
+          <br />
+          <br />
+        </p>
+        <img
+          src="
+          https://i.ibb.co/5hJ8NqR/step2.jpg
+          https://cdn.shopify.com/s/files/1/0339/5113/products/CS41_pint_qt_gal_page2_1024x1024.jpg?v=1600383124
+          "
+          style={{ height: "60vh" }}
+        />
 
         <p style={style}>
-          <b>Intro</b>
-          <br />
-          This project is about creating 3d printed addons for cameras, that
-          require the photographer to think through their work before pressing
-          the shutter button. I wanted to create 2 products: a 35-120mm film
-          converter and a bokeh lens cap.
-          <br />
-          <br />
-          <b>Global impact of my solution</b>
-          <br />
-          I think that social media is becoming more and more of a problem, not
-          because of its additivity, but also because of the content that we see
-          on it every day. The same girl, on the same selfie, promoting some
-          diet supplements. It has been proven that this influence is very bad
-          on the youth, causing them to have mental issues and eating disorders.
-          The impact I wanted my project to have on the photographers is for
-          them to think outside the box and plan ahead. The global change I hope
-          to see is better content for ourselves and the future of this planet –
-          our youth.
+          After making this draft I made a decision of "flattening down" the
+          choice of rotation and processing type. They are in a way equal.
+          Manual processing type is equivalent to standard rotation, automated
+          processing is the same as constant rotation, and semi-stand rotation
+          becomes a thind processing type option. In our app we called it "cold
+          processing".
           <br />
           <br />
-          <b>Personal goals</b>
-          <br />
-          3d modelling and game development were always on my bucket list, I
-          think ever since I played the Sims when I was a kid. I was very
-          excited to start a VR minor back in 2018, but unfortunately it wasn’t
-          a great experience for me. Even although I am a programmer,
-          programming for VR was expecting my brain to work on a level of
-          abstraction that simply wasn’t achievable for me. I quit the minor
-          half way through. I knew that VR will not become my career path ever
-          since.
-          <br />
-          <br />
-          The Embrace Technology minor really encouraged me to try my best at 3
-          modelling again. I did enjoy that part of my previous minor, but I
-          could never focus enough on it because I was busy keeping up with the
-          programming assignments. I decided to incorporate 3d modelling and 3d
-          printing with photography as my Future Solutions.
-          <br />
-          <br />
-          <b>Process</b>
-          <br />I first created the film converter, based on the measurements of
-          standard 35mm film roll and a 120mm take up spool. The spool required
-          some creativity, to make sure that the film is stretched. In the end
-          it was a matter of creating few basic shapes and combining them, or
-          cutting parts away from them. I had to learn how to do all of this in
-          Blender, and I thought myself that through watching YouTube tutorials.
+          <b>step 3: design the flow of the activity</b>
         </p>
-        <img style={imgs} src={require("../images/cam.jpg")} />
-        <p>Film converter prototype</p>
+        <img
+          src="https://i.ibb.co/8DX7hyq/Zrzut-ekranu-2020-10-4-o-14-13-13.png  "
+          style={imgs}
+        />
+
+        <p style={style}>
+          After all data was gathered I proceeded with the implementation of the
+          tutorial pages.
+          <br />
+          I identified these pages in the flow:
+          <br />
+          1. Tutorial page – here the user picks the kit
+          <br />
+          2. Processing page – depending on the kit the user may pick between
+          manual, automatic and cold (semi-stand) processing
+          <br />
+          3. Temperature page – depending on the kit and processing type the
+          user has chosen, he will be presented with a set of temperatures to
+          choose from. This is the temperature at which he will develop.
+          <br />
+          4. Film amount page – the user picks amount of rolls he will develop
+          at once (1-4)
+          <br />
+          5. Pre-step page – user is reminded about the commands, is shown how
+          to load the film into the tank and completes a security checklist
+          before starting the process,
+          <br />
+          6. Heat page – user completes the pre-heating task by using the voice
+          commands and waiting through the timer
+          <br />
+          7. Developer page – user completes the development stage with the use
+          of timer and voice commands
+          <br />
+          8. Bleach page – user completes the bleach stage with the use of timer
+          and voice commands
+          <br />
+          9. Rinse page - user completes the rinse stage with the use of timer
+          and voice commands
+          <br />
+          10. Final page – depending on the kit and type of processing this can
+          be either stabilizator or final wash stage, which is completed with
+          the use of timer and voice commands
+          <br />
+          <br />
+          Steps 6-10 share the same layout but have a different logic behind
+          them. The correct time is assigned to the timer depending on the
+          choices made in previous steps. This layout has three states:
+          <br />
+          <br />
+          -pre timer (user reads instruction)
+          <br />
+          -timer (user is proceeding with the instructions in the real life)
+          <br />
+          -after timer (user reads instruction and navigates to next step)
+          <br />
+        </p>
+        <img
+          style={{ height: "45vh" }}
+          src="https://i.ibb.co/fG1ZS9S/mygif.gif"
+        />
         <p style={style}>
           <br />
+          <b style={{ fontSize: "4vh" }}>Showroom </b>
+          <br />I wanted to proof my solution works in a real-life environment.
+          To do a showroom research I had to pick a test subject that has
+          interest in film photography but haven’t developed film yet. I looked
+          amongs the customers of Analog Space and quickly had Nmutaka Obi
+          volounteer to be my test subject. I develop on Mac computer and use
+          iPhone as my primary test device, so another criteria Nmutaka had to
+          meet was to own an Android phone. That’s because I wanted to see what
+          an Android user would say about my app’s UI. This way I got
+          information about how my app looks and works one One Plus phone, and
+          about the usability of my film processing tutorial. Unfortunately
+          Nmutaka wasn’t able to record himself during the process as I
+          requested because he was self-quarantined at his house with only one
+          mobile phone. He of course needed it to proceed with the tutorial.
+          After he finished the process he wrote down his feedback. Here are the
+          most valuable foundings:
+        </p>
+
+        <img
+          src="https://i.ibb.co/7KJ7ZZH/Zrzut-ekranu-2020-10-4-o-14-54-33.png"
+          style={{
+            height: "40vh",
+            display: "block",
+            margin: "0 auto",
+            paddingBottom: "20px",
+          }}
+        />
+        <p
+          style={{ fontStyle: "italic", fontSize: "3vh", textAlign: "center" }}
+        >
+          "it shouldn’t be possible to navigate when the timer is running. It
+          happened to me once by accident (was talking) after 1 minute have
+          passed, I navigated back to the timer and subtracted the 1 minute I
+          already did from the new timer. Lucky me, I was looking at the phone.
+          But I could ruin my photos this way... it was on the bleach step"
           <br />
-          The lens cap was more complicated to create, and after printing 9
-          prototypes I still haven’t found a perfect solution. I first thought
-          of creating a clip-on lens cap, but the clamps were merged forever
-          with its support material. They don’t work best and they make the lens
-          cap loose. Next time I printed 2 lens caps; the holes didn’t appear
-          because I didn’t change a 2d plane into 3d object properly. Now I know
-          how to change an SVG into a 3-dimensional object in Blender and cut a
-          hole out in universal lens cap. The next step is to figure out the
-          exact dimensions of the hole to give that curved bokeh effect. I’m
-          going to do that by printing several lens caps with different sizes of
-          star and heart holes, that fit my DSLR.
+          <br />
+          “it’s weird to have the next/previous navigation on the bottom for me
+          because I have a button for back... so I really only need the next
+          one”
+          <br />
+          <br />
+          “I could use a reminder of my commands even on the step page. I forgot
+          what I had set for previous at the last step.”
+          <br />
+          <br />
+          “I played with the cold development tutorial without developing film
+          and noticed the timer was paused when my screen locked. The timer said
+          120minutes...”
+          <br />
+          <br />
+          “I really enjoyed this process, I thought developing film is very hard
+          because I saw the manual before, but in this app it’s so easy to
+          follow. I would consider doing this regulary, not only for fun.”
           <br />
           <br />
         </p>
-        <img style={{ height: "55vh" }} src={require("../images/cam1.jpg")} />
-        <img style={{ height: "55vh" }} src={require("../images/cam2.jpg")} />
-        <p>Lens caps prototypes</p>
+
         <p style={style}>
-          <b>Reflections</b>
+          Nmutaka successfully developed his first roll of film using Tetenal
+          C41 Kit and manual processing at 38 degrees Celcius. This test prooved
+          that the format in which our tutorial is presented is correct, more
+          understandable to amateurs, just like Analog Space invisioned it. It
+          also shown a few flaws in the process that could or should be improved
+          before the release of the app.
           <br />
-          Experimenting with 3d modelling again was very fun and educational.
-          Next time I fail at something, I will try it again in a context that I
-          am passionate about – just the way I did so with this project by
-          combining it with photography. This way I was much more motivated.
           <br />
-          <br />I think that 3d printing is a revolutionary technology, and
-          there is infinity of things that can be done with it. I want to create
-          more fun products like this, that I could potentially use for my
-          AnalogSpace webshop. I’m already thinking of 620mm-35mm converter for
-          my Anscoflex II.
+          <b style={{ fontSize: "4vh" }}>Advice </b>
+          <br />
+          <br />
+          In the continuation of this project the bottom navigation from pages
+          “Temperature”, “Processing” and “Amount” has to be changed to a singe
+          “next” button, because Android users already have a built-in back
+          button. To assure that the app looks and feels seemless on both
+          platforms the App Bar should be brought back to these three pages (and
+          the main tutorial page) in order to place a back button on the header.
+          This way every platform will get the same look and same functionality.
+          The Color Film Processing Tutorial should serve as a template to the
+          black and white film processing. This was not implemented as Analog
+          Space lacked the raw data for the black and white kits. We were also
+          not able to identify the most popular black and white kit across the
+          world. That’s because people use alternative chemicals for this
+          processing. A lot of amateurs cook up their own chemistry from things
+          they find in their kitchen (as the survey has shown). Because of this
+          I recommend adding an extra tutorial on preparing home-made developer
+          for black and white film processing.
+          <br />
+          <br />
+          The showroom test made it clear that the cold development tutorial has
+          a major flaw. When the app is put in the background (other app was
+          opened, user had a call, the screen locked due to long inactivity) the
+          timer is paused. That results in a wrong processing time and
+          eventually destrying the film. My proposed solutions to this problem
+          would be:
+          <br />
+          <br />
+          1. Add two more steps to the checklist : setting for ‘always keeping
+          screen active’ and putting the phone in an airplane mode. The internet
+          connection is not necessary if the app already knows and remembers the
+          user commands, so this is a good workaroud. It will also prevent calls
+          and other apps from interrupting the process.
+          <br />
+          2. Save the timestamp at which the timer was started together with
+          it’s duration in the local state of the app. Upon the app going into
+          foreground, adjust the timer depending on the saved values.
+          <br />
+          <br />I believe implementing both of my recomended solutions would
+          prevent this problem from occuring again.
         </p>
       </div>
     ),
   },
   {
     id: 9,
-    title: "Breaking Film",
+    title: "Touchless User Experience ",
     thing: ["global citizenship", "entrepreneurship"],
-    letters: ["O", "G", "H"],
+    letters: ["L", "AN", "I", "C", "D"],
     img: "breaking.png",
     body: (
       <div style={div}>
-        <img style={imgs} src={require("../images/breaking.jpg")} />
         <p style={style}>
-          Me and my friend Mike have decided to share the knowledge we got doing
-          DIY Darkroom. We created a secret Facebook group and invited friends
-          and the people I sold cameras to. We understood that keeping the group
-          secret will mean we will not attract as many people, but that seemed
-          like the best option as we were still learning at the time.
+          The light research have determined that the user’s phone screen would
+          have to be covered in the darkroom setup. The film processing
+          tutorials does not happen in the darkroom, but there will be parts of
+          it, where the user will not be able to touch the screen. Their hands
+          can be wet from water, they could have vinyl gloves on, there could be
+          dangerous chemicals on them. All of these factors were taken into
+          count when designing the user experience of the Analog Space app. This
+          app is mindful of the user’s surroundings – the light settings, their
+          capabilities and preferences. Therefore, at times where the user is
+          not able to touch the screen, we had to find another way of navigating
+          though the tutorial.
           <br />
           <br />
-          We started hosting weekly meetings at Mike’s house, where we developed
-          film for others, scanned it, and thought our guest how to do it on
-          their own. Me and Mike would switch turns, and he would help me from
-          time to time with mixing the chemicals. We have also split roles with
-          post processing the negatives: I dry and cut them, Mike scans them
-          into .RAW files and then I adjust the photos in Adobe Lightroom. It’s
-          great to be in it together and have each other's back. Our team has
-          proven to be successful, as our Breaking Film group continued to grow
-          with each week. Now we plan together on opening up Analog Space, a
-          place where we would combine the open darkroom project with selling
-          and fixing antique cameras.
+          <b>Timer Solution</b>
           <br />
           <br />
-          After our group started growing, we realised that the equipment we had
-          wasn’t enough. In a standard JOBO and Kaiser tanks we could develop 3
-          rolls of film at one time. If we were having 10 people over on Friday
-          that would mean sitting there for 4 to 5 hours, if we count the beer
-          time. We decided to invest in a larger developing tank. This also
-          means that we had to buy extra chemicals and bottles, as our current
-          set up was for 1l of solution. Now we need 2 liters to fill up the new
-          tank. With this situation I learned to always plan ahead and wonder
-          what could go wrong. I didn’t have to wait long to put this knowledge
-          into use, because soon we decided to expand our services with black
-          and white negative process. It also had a snowball effect, and
-          required extra preparations and equipment, but we were prepared for
-          that. Next step we want to take is to put my enlarger into use, but
-          before we do that we will surely think it through and out.
+          I first considered making the ‘untouchable’ parts of the tutorials
+          timer-based. After a certain type has passed, the tutorial would
+          automatically navigate to the next step. This idea was quickly
+          disapproved, as using a timer is not an option in these tutorials
+          <br />
+          <br />
+          <b style={{ color: "blue" }}>1.Tutorial C-41</b> <br />
+          In this tutorial the user can choose the type of processing they will
+          undergo – manual or automatic. Both of these processes can involve
+          different types of development tanks, which will vary in types of
+          covers and the amount of liquid solutions they can hold. The bigger
+          the tank, the longer it will take to pour the chemicals. Of course, we
+          also cannot predict the angle at which the liquid will be poured. All
+          of these factors make estimating a time it takes to complete a step of
+          the C41 tutorial impossible.
+          <br />
+          <b style={{ color: "blue" }}>2. Tutorial * Printing </b> <br />
+          While printing we will allow the users to “pause” the tutorial in the
+          repetetive step. When photos are enlarged, if a person is working in a
+          team, they might want to focus only on the enlarging instructions.
+          They can then process how many photos they want. We will not be asking
+          out users if they plan on enlarging 1 or 100 photos. Instead, they can
+          repeat this step how many times they want to.
         </p>
         <img
           style={{ width: "50%", display: "block", margin: "5vh 0" }}
-          src={require("../images/film.jpg")}
+          src="https://zdnet2.cbsistatic.com/hub/i/2018/11/17/f19ae851-e141-413c-8bda-c0c6e98640e0/001.jpg"
         />
-        <p>
-          Having all those people over have had a massive influence on me and
-          Mike. Everyone is creative and have an idea for a fun experiment with
-          film. We are trying to keep people active on the group, and making
-          them feel like their opinions matter. That's why Mike is posting
-          surveys to see what people want to do, we also let them vote on ideas.
-          One happy guest invites another one, and hopefully we will turn them
-          into official customers soon with the Analog Space. People withing the
-          Breaking Film group have been very supportive and they let us into
-          their network. We've met people who enlarge negatives to the size of a
-          billboard and the ony person in the Netherlands who process super 8
-          movies. Now me and Mike are looking for a place to host Analog Space,
-          and we are hoping to collaborate with either the Hub, Dynamo or Plan
-          B. I'm hoping that my group will grow even more and I will meet more
-          people, so that we can all work together to benefit.
+        <p style={style}>
+          <b>Side Buttons Solution</b>
+          <br />
+          Since using the screen is not an option, I thought that we could maybe
+          use the phone’s buttons to navigate the tutorials. This idea was
+          discarded because we need at least 3 commands and we plan on expanding
+          this set at some point in the future. It’s not possible for us to
+          forsee if all phones in the future, or even those currently on the
+          market, will have at least 3 buttons available to us. Some phones have
+          already got rid of the ‘home’ button as a standalone piece of the
+          device, and are instead hiding this button underneath the screen,
+          which in our scenario is disabled. Another issue I found is that not
+          every phone the Analog Space app will support is waterproof, and even
+          waterproof phones are sensitive to chemicals used in the development
+          process. At this point we have determined that touching the phone in
+          any way is not an option for our darkroom tutorials.
+          <br />
+          <br />
+        </p>
+
+        <img src="https://d35fo82fjcw0y8.cloudfront.net/2018/11/13215740/voice-command-app-Blogheader-e1551339932560.png" />
+        <p style={style}>
+          <br />
+          <br />
+          <b>Voice Commands Solution</b>
+          <br />
+          The conducted research has led me to a conclusion – Analog Space app
+          has to use voice commands to navigate through pars of the darkroom
+          tutorials. The voice commands would have to be custom – individual to
+          every user. That’s because we don’t want to prevent people from
+          talking during the tutorial. The steps of the tutorials can ofter be
+          quite dull – they require a lot of waiting, and barely any movement is
+          done. It’s nice to have a chat then. Analog Space doesn’t want the
+          random conversations to be picked up by the app as the voice commands,
+          essentially wiping the important progress the user was making. If the
+          voice commands would be simply “next”, “stop”, “previous”, then the
+          command could be picked up by our app while the user is asking their
+          friend what are they doing next.
+          <br /> <br />I had to design several screens that allow the user to
+          set the voice commands. <br /> <br />
+        </p>
+        <img src="https://i.ibb.co/GpfmY8N/threescreens.png" />
+        <p style={style}>
+          <br /> <br />
+          To implement my invisioned solution I decided that I had to make use
+          out of the native speech reckognition software available on each
+          platform I am supporting – that is iOS and Android. Trying to write my
+          own speech reckognition software is not something I have planned for
+          this project, and would also conflict with the first lesson I was
+          given at Fontys – “don't reinvent the wheel”. Before writing any
+          native code I decided to explore packages I could use to program this
+          for both platforms at once.
+          <br /> <br />
+          <b style={{ color: "blue" }}>speech_recognition </b>
+        </p>
+        <img
+          style={{ height: "30vh" }}
+          src="https://i.ibb.co/8PfhKVs/Zrzut-ekranu-2020-08-31-o-22-41-51.png"
+        />
+        <p style={style}>
+          I considered this library at first. It is the most popular – I have
+          found numerous articles describing what I am trying to achieve using
+          this library. It has a lot to offer – it checks if the permissions
+          were given, and it even supports different languages.
+          <br /> <br />
+          After trying to work with this package I realised it has many flaws.
+          <br /> <br />
+          <b>1.</b> Wasn’t updated in a very long time <br />
+          <b>2.</b> Has a very important limitation: “On iOS, by default the
+          plugin is configured for French, English, Russian, Spanish, Italian.
+          On Android, without additional installations, it will probably works
+          only with the default device locale.”
+          <br />
+          <b>3.</b> Any error in this plugin can crash the app, even if it’s
+          caught
+          <br />
+          <b>4.</b> The app is crashing if it goes into background while this
+          plugin is in its listening mode.
+          <br />
+          <br />
+          That’s to name a few. After working with this plugin for about a week
+          I realised that it is not a good option for the Analog Space app as
+          it’s not predictable and it’s not in any undergoing development. I
+          have made the decision to look for an alternative.
+          <br />
+          <br />
+          <b style={{ color: "blue" }}> speech_to_text </b>
+        </p>
+        <img
+          style={{ height: "30vh" }}
+          src="https://i.ibb.co/QkR6P6m/Zrzut-ekranu-2020-08-31-o-22-49-34.png"
+        />
+        <p style={style}>
+          I found this library that exposes device specific speech recognition
+          capability. This plugin contains a set of classes that make it easy to
+          use the speech recognition capabilities of the mobile device in
+          Flutter. It supports both Android and iOS. The target use cases for
+          this library are commands and short phrases, not continuous spoken
+          conversion or always on listening. This dart package was recently
+          updated and is constantly updated. The issues are being recognised and
+          patched. There was a new release on 27/08/2020. These factors made me
+          choose this library. I continued my work on the voice commands making
+          this plugin my primary tool for the job.
+          <br />
+          <br />
+          <b>step 1: permissions </b>
+          Defining the use of certain permissions is a must while installing the
+          plugin. Speech_to_text does not come with a permission handler. I had
+          to take care of handling the permissions myself. That is: requesting,
+          verifying, and handling the worse – which is going around the denied
+          permission.
+          <br />
+          <br />
+          I request the permissions as the part of the darkroom checklist. There
+          is no need for the user to grant them if he/she is not planning on
+          using the tutorials. Once the app ask for the permissions and they are
+          granted, the checklists moves on to setting the voice commands. But
+          what if the permissions were denied? Not only the user cannot record
+          their voice commands, another problem occurs. Permission settings
+          cannot be wiped by the app, and once they are denied, I cannot request
+          them to be granted again.
+          <br />
+          <br />I looked around the world of mobile apps and how they handle
+          this case. I have two apps on my phone that require permission to
+          access my camera roll and my camera. The apps are: RETO3D and 1917.
+          After denying permissions the app opens the settings where the user
+          can change the permission status himself. I have chosen to implement
+          the same solution to this problem.
+        </p>
+        <img
+          style={{ height: "45vh" }}
+          src="https://i.ibb.co/NnqDBhT/denied.png"
+        />
+        <p style={style}>
+          <b>step2: define command </b>
+          <br /> <br />
+          The user holds down the button and records himself saying the chosen
+          command at least three times. The speech to text plugin is reporting
+          the results as a long string, where each pause is represented by a
+          space. Each time a new result is reported by the listener function,
+          and at least three words have been reckognised already, I try to
+          estimate the best guess of the command. The best guess is then
+          presented to the user and he can determine if he want to save the
+          reckoginsed word as his command or repeat the process.
+        </p>
+        <img
+          style={{ height: "45vh" }}
+          src="https://i.ibb.co/yPGswwM/ezgif-com-video-to-gif.gif"
+        />
+        <p style={style}>
+          <b> step 3: save the command </b>
+          <br /> <br />
+          We want to make the commands specific for each user, not the device.
+          The Analog Space app cannot therefore use any local storage to
+          memorize these commands. They will instead be stored in Firebase Cloud
+          Storage. I haven’t worked with Firebase before and found the process
+          of setting it up with Flutter very complicated. There is a long list
+          of plugins available and the list of the ones I had to use kept on
+          growing with the development of this project.{" "}
         </p>
 
         <img
-          style={{ width: "50%", display: "block", margin: "5vh auto" }}
-          src={require("../images/snip.jpg")}
+          style={{ height: "45vh" }}
+          src="https://i.ibb.co/BqzD911/Zrzut-ekranu-2020-09-9-o-17-27-38.png"
         />
-      </div>
-    ),
-  },
-  {
-    id: 10,
-    title: "Expert Goals",
-    thing: [],
-    letters: ["C", "F", "K"],
-    body: (
-      <div style={div}>
-        <img style={imgs} src={require("../images/exp.jpg")} />
         <p style={style}>
-          <b>
-            I want to establish my own business and pave the path to graduate at
-            this startup.
-          </b>
-          <br />
-          <br />
-          <b>SMART:</b>
-          <br /> Specific: I want to create a business which will include an
-          open darkroom, a front to sell my cameras and a webshop with different
-          sorts of “analog” products, including the outcome of this project.
-          <br />
-          Measurable: The goal will be achieved once the company is made legal,
-          me and Mike have signed a partnership agreement and I got a green
-          light to graduate while working on my webshop. <br />
-          Achievable: To make this big goal achievable I will divide it into
-          several small steps and keep track of it on a SCRUM board.
-          <br /> Relevant: Being the boss of myself is what drives me and gets
-          me up in the morning. Starting my own business couldn’t be more
-          relevant to who I am and what I want to represent.
-          <br /> Time: I will put in time spent at Fontys but also the time me
-          and Mike spend together to develop our company.
-          <br />
-          <br />
-          I wanted to prepare myself for graduating at my own company, because I
-          ‘ve had a job as software developer for over 2 years now and I
-          couldn’t imagine going back to intern pay for 40 hours a week. I want
-          to create something of myself and that’s why I’m going to establish
-          Analog Space. Having this as an expert goal has been a great
-          introduction to this long, complicated process. Now I know all the
-          documents and steps I must take to have a legal webshop in the
-          Netherlands. I’ve also learned that I must apply for the student
-          entrepreneur status at Fontys, in order to get my project approved by
-          the exam board. Last byt not least, I had to create a business model
-          canvas, partnership agreement and business plan together with Mike, my
-          business partner. Through this process I’ve learned that establishing
-          my business and making it valid for my graduation will not be easy.
-          There is still a lot of work to be done, and several people whose help
-          is needed, like accountants and a notary. I decided not to let it
-          discourage me, but instead plan ahead with all this knowledge I
-          already got during Future Solutions. I postponed mu graduation project
-          till November 2019, to make sure I’m done with the necessary paperwork
-          beforehand. This whole experience has thought me that starting your
-          own business can be complicated, and can create a snowball effect.
-          There are a lot of things that must be accounted for, and it requires
-          a lot of time and dedication. It’s important to always think about the
-          next problem that will arise due to the chosen solution. Just the way
-          I must comply with RODO on my webshop, and take care of all that
-          privacy statements.
-          <br />
-          <br />
-          <br />
-          <br />
-          <b>
-            {" "}
-            I want to learn how to manage my time, so that the goals I set are
-            achieved.
-          </b>{" "}
-          <br />
-          <br />
-          <br />
-          <b>SMART:</b> <br />
-          Specific: I will split the big goals into small steps and organize
-          them into “sprints”. Each sprint will be given a time frame. The small
-          steps will be put onto a scrum board to always be able to look and
-          evaluate where I am now.
-          <br /> Measurable: SCRUM board will be a visual aid anyone in the
-          minor can look at and see where I am with my project at the moment.
-          <br /> Achievable: This is achievable to anyone on the planet, just a
-          bit harder for me as I love chaos. <br />
-          Relevant: This expert goal is very relevant as it will help me achieve
-          what I set as a goal for my future solutions. This will benefit me in
-          my life as well.
-          <br /> Time: As soon as possible.
-          <br />
-          <br />
-          I decided to make time management one of my expert goals because it’s
-          something I’ve always had trouble with in my life. I tend to be very
-          spontaneous and use my instincts whenever I can. This has caused me to
-          miss many deadlines before and I decided to become more structured
-          during the time allocated for Future Solutions. I created a SCRUM
-          board that everyone could see in the PULSED room, and made sure to
-          update it every time I was at school. The goals I had in mind for this
-          project were split into 2 categories: Business and Product. These were
-          split down into smaller tasks, like creating business canvas model, or
-          printing first lens cap prototype. The visual aid was very helpful
-          throughout the project and made me realize when I was jumping the gun,
-          and where I was falling behind. At some point of the project the
-          business part took over and I didn’t focus enough on the prototypes. I
-          could see that on the SCRUM board. This project has thought me that
-          structure and organization are very important, and even though they
-          are not my strengths, it is crucial that I work on them, especially
-          before staring my own business. I will try not to be late to
-          appointments all the time and maybe even try to organize my own house
-          a bit more, not to drown in laundry ever week. Future Solutions and
-          time management have made me realize many faults in my life and I am
-          eager to work on them.
-          <br />
-          <br /> <br />
-          <br />
-          <b>
-            I want to find out how and if an “add-on” for a camera can alter a
-            picture and create reproducible, predictable effects.
-          </b>
-          <br />
-          <br />
-          <b>SMART:</b>
-          <br /> Specific: I will be working on this by myself in the Pulsed
-          room, using the 3d printers and the fillament provided to us. The
-          add-ons will be created for both cameras with lenses and the “point
-          and shoot” cameras. First of all I want to create a customizable lens
-          cap that will create a modified bokeh effect. <br />
-          Measurable: The goal is to achieve a strange effect on the
-          photographs, that are reproducable. The add-on has to work both on
-          film and digital cameras. <br />
-          Achievable: I can achieve this help with a lot of persistance,
-          creativity and a couple of youtube tutorials. <br />
-          Relevant: It is closely related to my bigger goal – starting a
-          business that will keep film photography a live. I also want to
-          develop in the field of 3d printing, and find out as much as I can
-          about the needs and problems of people interested in photography.{" "}
-          <br />
-          Time: This needs to be completed by the time of the 3rd Groow Moment.
-          The work is divided into small tasks and organised on a SCRUM board.
-          <br />
-          <br />I chose this as my expert goal because I wanted to really
-          challenge myself. Couple of months ago I failed a VR minor, where we
-          learned all about 3d modelling. I thought I will never do it again,
-          but seeing the printers in the Pulsed room, I decide to give it ago,
-          as it would be stupid not to try. After first couple of prints I saw
-          that I am not very motivated and creative. That’s why I decided to
-          combine the 3d printing technology with something I am very passionate
-          about – photography. Throughout the whole project I was very creative
-          and persistent. I created at least 10 prototypes for both film
-          converter and lens cap, constantly gathering feedback from my testers
-          and adjusting my models. I am very happy with the outcomes of this
-          project. It made me realize just how many things I gave up on in my
-          life due to one failure. Now I will try take things that are
-          challenging to me and put them in a context that is familiar to me,
-          like photography. This kept me motivated all the way through.
+          After implementing the authentication (link to social media article) I
+          could make use of the user ID in the process of saving the voice
+          command. The voice commands are saved using auto generated identifier
+          and have only 4 fields.{" "}
         </p>
+        <img
+          style={{ height: "45vh" }}
+          src="https://i.ibb.co/v33gsb8/Zrzut-ekranu-2020-09-9-o-17-29-58.png"
+        />
+        <p style={style}>
+          After setting the voice commands and completing the darkroom checklist
+          it’s still possible for the user to change the commands again. In such
+          case, new document is not created, but instead I am looking for a
+          document reference in a list of document snapshot. If one with the
+          currently logged in user is found, then I update the currently
+          selected user command. Have in mind I had to create a reusable
+          Widget/Page. One page and one function is responsible for saving every
+          type of command. That is achieved through parsing passed arguments on
+          build, and using the set ‘type’ as the field key during the
+          save/update process. Here are some code samples.
+        </p>
+        <img
+          style={{ height: "45vh" }}
+          src="https://i.ibb.co/VLGDshh/Zrzut-ekranu-2020-09-9-o-17-32-13.png"
+        />
+        <img
+          style={{ height: "45vh" }}
+          src="https://i.ibb.co/51LShxD/Zrzut-ekranu-2020-09-9-o-17-32-40.png"
+        />
       </div>
     ),
   },

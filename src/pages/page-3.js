@@ -80,14 +80,16 @@ class ThirdPage extends React.Component {
     const letterStyle = {
       ...styles.pickers,
       color: "white",
-      fontSize: "1.5em",
+      fontSize: "1em",
+      width: "max-content",
+      fontWeight: "300",
     }
     const activeLetterStyle = {
       ...styles.pickers,
       color: "lightgreen",
-      fontSize: "1.5em",
-      width: "100%",
-      textAlign: "center",
+      fontSize: "1em",
+      width: "max-content",
+      fontWeight: "700",
     }
     let content = null
     const back = (
@@ -106,8 +108,7 @@ class ThirdPage extends React.Component {
     )
     content = <div style={styles.firstPanelL}>{back}</div>
 
-    let letters1 = ["A", "B", "C", "D", "E", "F", "G"]
-    let letters2 = ["H", "I", "J", "K", "L", "M", "N", "O"]
+    let letters1 = ["M", "AD", "AN", "D", "I", "J", "C", "L", "DOT"]
     let list = null
 
     if (contentPages) {
@@ -150,30 +151,41 @@ class ThirdPage extends React.Component {
               <div style={styles.half}>
                 {letters1.map(l => {
                   return (
-                    <p
-                      key={l}
-                      style={
-                        this.state.letter == l ? activeLetterStyle : letterStyle
-                      }
+                    <div
+                      style={styles.letterRow}
+                      className="letterRow"
                       onClick={() => this.handleClick(l)}
                     >
-                      {l}
-                    </p>
-                  )
-                })}
-              </div>
-              <div style={styles.half}>
-                {letters2.map(l => {
-                  return (
-                    <p
-                      key={l}
-                      onClick={() => this.handleClick(l)}
-                      style={
-                        this.state.letter == l ? activeLetterStyle : letterStyle
-                      }
-                    >
-                      {l}
-                    </p>
+                      <p
+                        key={l}
+                        style={
+                          this.state.letter == l
+                            ? activeLetterStyle
+                            : letterStyle
+                        }
+                      >
+                        {l}
+                      </p>
+                      <p style={letterStyle}>
+                        {l == "AD"
+                          ? "Advice"
+                          : l == "AN"
+                          ? "Analyze"
+                          : l == "M"
+                          ? "Manage"
+                          : l == "D"
+                          ? "Design"
+                          : l == "I"
+                          ? "Implement"
+                          : l == "J"
+                          ? "Judgement"
+                          : l == "L"
+                          ? "Learning Ability"
+                          : l == "DOT"
+                          ? "Framework"
+                          : "Communication"}
+                      </p>
+                    </div>
                   )
                 })}
               </div>
@@ -208,7 +220,7 @@ const styles = {
   half: {
     flexDirection: "column",
     display: "flex",
-    width: "49.5%",
+    width: "100%",
   },
   postRow: {
     padding: "10px 10px",
@@ -279,6 +291,17 @@ const styles = {
     color: "white",
     margin: 0,
     padding: 0,
+  },
+  letterRow: {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    backgroundColor: "black",
+    padding: "10px 5px",
+    width: "100%",
+    border: "1px solid white",
+    cursor: "pointer",
   },
 }
 
