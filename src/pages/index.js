@@ -23,10 +23,10 @@ class IndexPage extends React.Component {
   }
 
   godView = () => {
-    navigate("/page-3")
+    navigate("/page-3/")
   }
   goTo = id => {
-    navigate("/page-2", { state: { id: id } })
+    navigate("/page-2/", { state: { id: id } })
   }
 
   render() {
@@ -70,7 +70,7 @@ class IndexPage extends React.Component {
             overflowY: "hidden",
           }}
         >
-          <div style={{ width: "400vw", height: "100%" }}>
+          <div style={{ width: "520vw", height: "100%" }}>
             <div
               style={{
                 width: "25vw",
@@ -82,8 +82,16 @@ class IndexPage extends React.Component {
                 backgroundPosition: "top",
                 backgroundSize: "cover",
                 backgroundRepeat: "no-repeat",
+                position: "relative",
               }}
-            />
+            >
+              <div style={styles.stripe} onClick={() => this.godView()}>
+                <p style={styles.godText} onClick={() => this.godView()}>
+                  &#171; ASSESSOR'S <br />
+                  VIEW
+                </p>
+              </div>
+            </div>
             <div style={styles.frame1}>
               <h2
                 style={{
@@ -92,19 +100,14 @@ class IndexPage extends React.Component {
                   marginTop: "5vw",
                   color: "white",
                   fontSize: "3vh",
+                  backgroundColor: "black",
+                  width: "max-content",
                 }}
               >
                 ROAD TO GRADUATION <br /> AT ANALOG SPACE
               </h2>
               <p style={styles.text1}>MARTA KIELPINSKA</p>
               <p style={styles.text2}>CREATIVE PORTFOLIO</p>
-              <div style={styles.stripe} onClick={() => this.godView()}>
-                <p style={styles.text3} onClick={() => this.godView()}>
-                  {" "}
-                  &#171; GOD'S VIEW
-                </p>
-                {/* <p style={{width: "max-content"}}>ASSESSORS VIEW </p> */}
-              </div>
             </div>
             <div style={styles.panel2} onClick={() => this.goTo(1)}>
               <h2
@@ -173,6 +176,20 @@ class IndexPage extends React.Component {
                 }}
               >
                 ENGINEERING CHEMISTRY
+              </h2>
+            </div>
+
+            <div style={styles.panelMC} onClick={() => this.goTo(10)}>
+              <h2
+                style={{
+                  fontFamily: "'Major Mono Display', monospace",
+                  marginLeft: "5vw",
+                  marginTop: "5vw",
+                  color: "white",
+                  fontSize: "3vh",
+                }}
+              >
+                MANAGE & CONTROL
               </h2>
             </div>
 
@@ -283,6 +300,8 @@ const styles = {
     marginBottom: 0,
     color: "white",
     fontWeight: "300",
+    backgroundColor: "black",
+    width: "max-content",
   },
   text2: {
     fontFamily: "Lato, sans-serif",
@@ -292,18 +311,22 @@ const styles = {
     marginBottom: 0,
     color: "white",
     fontWeight: "300",
+    backgroundColor: "black",
+    width: "max-content",
   },
-  text3: {
+  godText: {
     fontFamily: "Lato, sans-serif",
     letterSpacing: "1.8px",
     color: "white",
     fontWeight: "300",
     cursor: "pointer",
+    textAlign: "right",
   },
   stripe: {
     position: "absolute",
     bottom: 10,
-    width: "100%",
+    right: 30,
+    width: "max-content",
     height: "10vh",
     backgroundColor: "transparent",
     flexDirection: "red",
@@ -371,6 +394,19 @@ const styles = {
     marginLeft: "5vw",
     float: "left",
     backgroundImage: "url(" + "https://i.ibb.co/sHyqkZH/dev.jpg" + ")",
+    backgroundPosition: "top",
+    backgroundSize: "cover",
+    backgroundRepeat: "no-repeat",
+    position: "relative",
+    cursor: "pointer",
+  },
+  panelMC: {
+    width: "50vw",
+    height: "100%",
+    backgroundColor: "green",
+    marginLeft: "5vw",
+    float: "left",
+    backgroundImage: "url(" + "https://i.ibb.co/RpTB4rt/mana.jpg" + ")",
     backgroundPosition: "top",
     backgroundSize: "cover",
     backgroundRepeat: "no-repeat",

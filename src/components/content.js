@@ -179,6 +179,123 @@ export let contentPages = [
           determination).
           <br />
           <br />
+          <b>Animations in Flutter</b>
+          <br /> <br />
+          I designed two animations that were to be attached to the tutorial
+          screens. One in which there are moving flames underneath a pot with
+          water and a floating tank. The second animation is pouring chemicals
+          from different bottles into the tank – so variations of the same
+          animation with one element being unique. I didn’t have any experience
+          with creating animations before, especially in the context of a cross
+          mobile application created with Flutter.
+          <br /> <br />
+          After reading the official tutorial on <a>animations in Flutter</a> I
+          created the animations using a combination of: <br />
+          &middot; AnimatedContainer widgets <br />
+          &middot; Column with centered SlideTransition widget <br />
+          &middot; Positioned Image Assets <br />
+          &middot; Stack widget for positioning elements on top of eachother{" "}
+          <br />
+          &middot; Animation Controller <br />
+          &middot; Tween <br />
+          &middot; Timer <br /> <br />
+          I want to go more in depth on the process of creating th Heating
+          Animation because the same logic and concepts were applied to the
+          other animation, and the heating one is the more complex of the two.
+          <br /> <br />
+          <b>Heating Animation</b>
+          <br /> <br />
+        </p>
+        <img
+          src="https://i.ibb.co/z7HNQVc/ezgif-1-e87bc369e0db.gif"
+          style={{ width: "35vw", display: "block", margin: "2.5vh auto" }}
+        />
+        <img
+          src="https://i.ibb.co/5B38Qx4/anima.png"
+          style={{ width: "50vw", display: "block", margin: "5vh auto" }}
+        />
+        <p style={style}>
+          The reason why these rows are separated and positioned on top of
+          eachother is to have the fire overlap eachother as it animates. The
+          animation for each row is to grow bigger and smaller, in such way that
+          when row A grows bigger the row B is growing smaller.
+          <br /> <br />
+          The fire animation is controlled by two timers which manipulate two
+          values called “bigger” and “bigger2”. That value is then passed to the
+          Animated Containers which animate the size of the fire icons depending
+          on the “bigger” value.
+        </p>
+        <img
+          src="https://i.ibb.co/jw0bL6K/Zrzut-ekranu-2021-01-4-o-19-09-53.png"
+          style={{ width: "40vw", display: "block", margin: "5vh auto" }}
+        />
+        <img
+          src="https://i.ibb.co/wsKsbFN/Zrzut-ekranu-2021-01-4-o-19-10-13.png"
+          style={{ width: "40vw", display: "block", margin: "5vh auto" }}
+        />
+        <p style={style}>
+          <b>2. Floating tank </b>
+          <br /> <br />
+          To achieve the feeling of a floating tank I decided for a more
+          complicated animation, after trying to animate only the position on
+          the Y axis, I decided it wasn’t giving the right feeling. I wanted to
+          achieve a motion that could be described in a linear form such as in
+          the image below.
+          <br /> <br />
+        </p>
+        <img
+          src="https://i.ibb.co/h7mFwPF/Zrzut-ekranu-2021-01-4-o-19-12-41.png"
+          style={{ width: "40vw", display: "block", margin: "5vh auto" }}
+        />
+        <p style={style}>
+          To achieve this animation I used a Tween because by default, the
+          AnimationController object ranges from 0.0 to 1.0. If you need a
+          different range or a different data type, you can use a Tween to
+          configure an animation to interpolate to a different range or data
+          type. For example, I used the Tween to manipulate the offset data of
+          the positioned element, but it could also be used to animate two
+          colors, or to manipulate a slider with values starting at –200 and
+          ending and 5000. Anything is possible with a Tween. I’m excited to
+          learn about this technique, as it is relatively easy once the Tween is
+          paired with a Widget that it can affect. The choice of the widget is
+          what can be problematic. In my case the tank is floating – to achieve
+          it, it needs to have “room” for that movement. Therefore, I used a
+          column with a cantered (positioned) slide transition. The slide
+          transition widget displays the tank icon.
+        </p>
+
+        <img
+          src="https://i.ibb.co/ch0m1zc/OFFSET.png"
+          style={{ width: "50vw", display: "block", margin: "5vh auto" }}
+        />
+
+        <img
+          src="https://i.ibb.co/BTRy26q/Zrzut-ekranu-2021-01-4-o-19-14-42.png"
+          style={{ width: "40vw", display: "block", margin: "5vh auto" }}
+        />
+
+        <img
+          src="https://i.ibb.co/KKT4g5x/Zrzut-ekranu-2021-01-4-o-19-14-20.png"
+          style={{ width: "40vw", display: "block", margin: "5vh auto" }}
+        />
+
+        <p style={style}>
+          <b>Conclusions</b>
+          <br /> <br />
+          I’ve been postponing learning about animations for a very long time
+          and even in the duration of this project, I was hesitating to try
+          them. To my surprise creating animations is Flutter is quite easy once
+          you get to know all the tools and their combinations. The concept
+          wasn’t easy to grasp at first – there are widgets that are shown in
+          the view such as Animated Containers that can be controlled by an
+          Animation Controller, but don’t have to be. The Animated Containers
+          can be controlled by any dynamic value, like the ones I introduced
+          with the use of Times for the Fire Animation. Consecutively, Animated
+          Controller can be used to animate a widget that cannot be animated at
+          first – the Animated Controller can be only used to manipulate a value
+          that’s later used in a “normal” widget such as an image asset. The
+          combination of these versatile elements depends on the goal that we’re
+          trying to achieve.
         </p>
       </div>
     ),
@@ -187,7 +304,7 @@ export let contentPages = [
     id: 2,
     title: "Light Research",
     thing: ["technology"],
-    letters: ["L", "J", "AN", "AD", "DOT"],
+    letters: ["L", "J", "AN", "AD"],
     img: "vue.jpg",
     body: (
       <div style={div}>
@@ -322,7 +439,13 @@ export let contentPages = [
           high-density, light proof material.
           <br />
           <br />
-          [add graphic]
+        </p>
+
+        <img
+          src="https://i.ibb.co/dcY2v9g/135565836-153589692940357-1203294323322872550-n.jpg"
+          style={{ width: "80%", display: "block", margin: "5vh auto" }}
+        />
+        <p style={style}>
           <br />
           <br />
           Question no.2 has raised a lot of other, interesting paths for future
@@ -341,7 +464,7 @@ export let contentPages = [
     id: 3,
     title: "SVGs in Hybrid Apps",
     thing: ["creativity", "global citizenship"],
-    letters: ["L", "AN", "J", "DOT"],
+    letters: ["L", "AN", "J"],
     img: "diydarkroom.jpg",
     body: (
       <div style={div}>
@@ -610,7 +733,7 @@ export let contentPages = [
     id: 4,
     title: "Engineering Chemistry",
     thing: ["technology"],
-    letters: ["AN", "J", "AD", "D", "I", "DOT"],
+    letters: ["AN", "J", "AD", "D", "I"],
     img: "wolfpack.jpg",
     body: (
       <div style={div}>
@@ -931,6 +1054,9 @@ export let contentPages = [
         />
 
         <p style={style}>
+          <b>step 4: realisation</b>
+          <br />
+          <br />
           After all data was gathered I proceeded with the implementation of the
           tutorial pages.
           <br />
@@ -980,9 +1106,18 @@ export let contentPages = [
           <br />
           -after timer (user reads instruction and navigates to next step)
           <br />
+          All of these pages have a different animation on the top, which is
+          controlled in a separate module called the View Model. All animations
+          share something in common: a floating element or/and a heating drum.
+          All data displayed on the pages is dependent on the choices the user
+          has made previously about the preffered temperature, chemistry and
+          processing type.
+          <br /> <br />
+          The implemented solution can be seen below. The naviagtion is
+          triggered by a voice command.
         </p>
         <img
-          style={{ height: "45vh" }}
+          style={{ height: "70vh" }}
           src="https://i.ibb.co/fG1ZS9S/mygif.gif"
         />
         <p style={style}>
@@ -1054,7 +1189,7 @@ export let contentPages = [
           before the release of the app.
           <br />
           <br />
-          <b style={{ fontSize: "4vh" }}>Advice </b>
+          <b style={{ fontSize: "4vh" }}>General Advice </b>
           <br />
           <br />
           In the continuation of this project the bottom navigation from pages
@@ -1095,6 +1230,118 @@ export let contentPages = [
           <br />
           <br />I believe implementing both of my recomended solutions would
           prevent this problem from occuring again.
+          <br />
+          <br />
+          <b style={{ fontSize: "4vh" }}>Cold-Stand Support Advice </b>
+          <br />
+          <br />
+          The next planned feature to be implemented after the completion of
+          this phase of the project is the cold-stand (or semi-stand) improved
+          support. The cold-stand support is to be applied on both film
+          development tutorials, so it also applies to the deliverable of this
+          project – the color film processing tutorial.
+          <br />
+          <br />
+          <b>
+            Problem definition – what is semi-stand processing and what issues
+            does it introduce in the app
+          </b>
+          <br />
+          Opening the doors to full flexibility of the chemistry kits for my
+          users opened up doors to some problems on the application’s end.
+          Analog Space wants to display full flexibility of the chemical kits
+          used during the film processing tutorials. For example, if the user
+          has purchased the Tetenal C-41 kit and plans on using it with our app,
+          he will be shown more possibilities on how to develop film with it,
+          compared to the manual attached to the kit. The manual would only
+          mention manual and automated processing on two temperature settings –
+          30 and 38 degrees Celcius. Meanwhile, as a photo lab, Analog Space is
+          aware that the Tetenal Kit chemicals can be used in a big range of
+          temperatures. One could choose to develop at a temperature as low as
+          18 degrees. Developing at temperatures between 18-22 can be called
+          semi-stand or cold-stand processing. Processing at these “room
+          temperatures” means that our user will dip their film in chemicals for
+          much longer periods of time – up to 30 minutes.
+          <br /> <br />
+          Keeping the screen on for 30 minutes is problematic for many reasons –
+          one being the battery usage, and another being simply that an app
+          cannot force the user to pay attention only to it. In the 30 minutes
+          time the user could lock the phone, answer a call, text. The phone
+          could run out of battery and be restarted. So many things could happen
+          in such a long period of time. I also know from my own experience that
+          I do not pay attention to my timer when I’m doing cold-stand
+          processing at Analog Space. The normal process allows for you to
+          forget about the film being processed for those 30 minutes, only to be
+          rushed to it by an alarm in the least appropriate moment. I’d like
+          this app to support and enforce this “tradition” - by delivering it as
+          a mobile user experience.
+          <br /> <br />
+          <b>Solution</b>
+          <br />
+          In order to assure our distracted user will remember to attend the
+          developed film, a number of alarms should be set. One being 5 minutes
+          prior to required action, so that the user has time for preparation.
+          This way we eliminate the “surprise factor” I mentioned in the problem
+          description. After leaving the film unattended for 30minutes one could
+          use a reminder that “it’s about time”, instead of having to rush
+          unexpectedly.
+          <br /> <br />
+          My recommended solution is to use the “flutter_local_notifications”
+          package. It can schedule notification in the future and it would work
+          in foreground, background and when app is terminated - covering all
+          problems from the cold-stand scenario. The plugin can be set up for
+          Android devices by editing the Android Manifest XML file, and by
+          modifying the AppDelegate Swift file for the iOS version.
+          <br />
+          These steps should be followed:
+          <br /> <br />
+          <b>1.Add this to the pubspec.yaml file:</b> <br />
+          <b style={{ color: "red", letterSpacing: "2px", fontWeight: "100" }}>
+            dependencies: flutter_local_notifications: ^3.0.2
+          </b>
+          <br />
+          <b>2.Install by running in the terminal:</b>
+          <br />
+          <b style={{ color: "red", letterSpacing: "2px", fontWeight: "100" }}>
+            $ flutter pub get
+          </b>
+          <br />
+          <b>3. Add activity to the Android Manifest file</b>
+          <br />
+          <b style={{ color: "red", letterSpacing: "2px", fontWeight: "100" }}>
+            {true == true
+              ? '<activity android: showWhenLocked="true" android:turnScreenOn="true">'
+              : ""}
+          </b>
+          <br />
+          <b>4.Add this to the App Delegate file (iOS)</b>
+          <br />
+          <b style={{ color: "red", letterSpacing: "2px", fontWeight: "100" }}>
+            {true == true
+              ? "if #available(iOS 10.0, *) {UNUserNotificationCenter.current().delegate = self as ?UNUserNotificationCenterDelegate}"
+              : ""}
+          </b>
+          <br />
+          <b>5. Import it </b>
+          <br />
+          <b style={{ color: "red", letterSpacing: "2px", fontWeight: "100" }}>
+            import
+            'package:flutter_local_notifications/flutter_local_notifications.dart';{" "}
+          </b>
+          <br />
+          <b>
+            6. Follow the documentation for scheduling notifications and/or
+            setting alarms.
+          </b>
+          <br />
+          <a href="https://pub.dev/packages/flutter_local_notifications#displaying-a-notification">
+            display notification example
+          </a>
+          <br />
+          <a href="https://github.com/MaikuB/flutter_local_notifications ">
+            git repository
+          </a>
+          <br />
         </p>
       </div>
     ),
@@ -1296,10 +1543,18 @@ export let contentPages = [
           estimate the best guess of the command. The best guess is then
           presented to the user and he can determine if he want to save the
           reckoginsed word as his command or repeat the process.
+          <br /> <br />
+          The whole activity of saving the command is shown in the UML activity
+          diagram, and spans between the activities taken on the Commands List
+          Screen and the Set Command Screen.
         </p>
         <img
           style={{ height: "45vh" }}
           src="https://i.ibb.co/yPGswwM/ezgif-com-video-to-gif.gif"
+        />
+        <img
+          style={{ width: "70vw" }}
+          src="https://i.ibb.co/BcSDd8Y/Untitled-Diagram.jpg"
         />
         <p style={style}>
           <b> step 3: save the command </b>
@@ -1347,6 +1602,246 @@ export let contentPages = [
           style={{ height: "45vh" }}
           src="https://i.ibb.co/51LShxD/Zrzut-ekranu-2020-09-9-o-17-32-40.png"
         />
+      </div>
+    ),
+  },
+
+  {
+    id: 10,
+    title: "Manage & Control",
+    letters: ["M"],
+    img: "breaking.png",
+    body: (
+      <div style={div}>
+        <p style={style}>
+          Managing and controling a software development project is a broad
+          concept that describes various tools and ways of being in control of
+          the project’s workflow. It’s not as straightforward as using a version
+          control tool - it has many layers. The way the works is planned and
+          carried out is also a way of controling. Below I’m trying to explain
+          all the layers of managment and control of the Analog Space App.
+          <br /> <br />
+          <b>Mathodology</b>
+          <br />
+          When I was first planning my project I decided to use a mix of Big
+          Design Up Front (BDUF) and agile approach. The idea was that I
+          wouldn’t implement BDUF in a strict way – as in it’s original
+          definition BDUF leans forward the waterfall model. The design of the
+          application is to be perfected before the implementation phase begins.
+          Instead I decided to design as many screens as it was possible after
+          the initial phase and research. That’s because the research about the
+          chemistry that we’ve (as a company) have conducted was more long-term
+          and I couldn’t design the tutorial pages without obtaining the raw
+          data about the chemistry we were planning to use. After that I would
+          begin planned sprints and develop the application based on the design
+          I created. After two and half months I obtained the raw data from the
+          chemistry research and began processing it. I had to design a mobile
+          experience – not only how the screens will look like but also how they
+          will influence the user and how they will interact with it. I had to
+          adapt my process as I was learning more about my application context –
+          the complicated process of film development and darkroom chemicals.
+          That’s why I would no longer call my approach a mix of BDUF and agile,
+          however, it still remains valid to a certain extent. A better way of
+          describing this methodology would be to call it Design Based Learning
+          (DBL). In DBL the person or the team carrying out the project remain
+          conscious about the context of the planned application by constantly
+          exploring it. That consciousness means testing the planned solution in
+          a real-life environment, researching the environment of the problem,
+          speaking and learning about the end user. As I learned more about all
+          of these things, I was adjusting my process accordingly, while still
+          moving forward with designing and implementing the planned components
+          and pages of the application.
+          <br />
+          <br />
+          <b> Planning & tracking progress </b>
+          <br />
+          For planning I used an online list-making tool called trello. Every
+          activity that had to be carried out falls under 4 categories with
+          corresponding color codes:
+          <br />
+          &middot; Design – screen, component and animation designs in vector
+          format
+          <br />
+          &middot; Design IT – activity design, everything that has to do with
+          the app interacting with the database, database design, class diagrams
+          etc.
+          <br />
+          &middot; Implementation
+          <br />
+          &middot; Research
+          <br />
+          <br />
+          These activities are placed on 4 different lists depending on their
+          status. The lists are:
+          <br />
+          &middot; To Do
+          <br />
+          &middot; Doing
+          <br />
+          &middot; Review – rejected
+          <br />
+          &middot; Review – need adjustments
+          <br />
+          &middot; Done
+          <br />
+          Every activity on this board is a broad section of the application.
+          Sometimes having just an activity to move around the lists were not
+          enough because I would have to pause in the middle due to unfinished
+          research. Other times, a concept was so broad (for example developing
+          the film tutorial) that it was almost too overwhelming to start the
+          work. To help me fight these problems I used Mark Steel’s approach of
+          “Achieving Unachievable”. His idea is that when a person is facing a
+          big challenge, one that they cannot really grasp all at once, they
+          should divide it into smallest steps possible. By ticking the small
+          tasks of the list I was getting motivated and seeing that my work was
+          moving forward.
+        </p>
+        <img
+          style={{ width: "70vw" }}
+          src="https://i.ibb.co/xGY5cSv/Zrzut-ekranu-2021-01-2-o-18-52-41.png"
+        />
+
+        <img
+          style={{ height: "55vw" }}
+          src="https://i.ibb.co/q16wwrh/Zrzut-ekranu-2021-01-2-o-18-51-10.png"
+        />
+
+        <p style={style}>
+          <b style={{ fontSize: "3vh" }}>Tools</b>
+          <br />
+          <br />
+          <b>Git</b>
+          <br />
+          For version control I created a repository on GitHub and used a git
+          client on Mac OS called Fork. It took me some time to understand the
+          best way for commiting my progress. In the beginning I would face
+          issues with the size of my commit being too big. That’s because I
+          didn’t set up the .gitignore file properly for a flutter project. I
+          was trying to save the re-generated builds and package files every
+          time I was changing something small. After setting the ignored files
+          correctly I no longer faced any issues.
+          <br />
+          <br />
+        </p>
+        <img
+          style={{ width: "70vw" }}
+          src="https://i.ibb.co/1Qt6jw5/Zrzut-ekranu-2021-01-2-o-19-23-59.png"
+        />
+
+        <img
+          style={{ width: "70vw" }}
+          src="https://i.ibb.co/FwJbcyz/Zrzut-ekranu-2021-01-2-o-19-27-59.png"
+        />
+
+        <img
+          style={{ width: "70vw" }}
+          src="https://i.ibb.co/5WNN3FB/Zrzut-ekranu-2021-01-2-o-19-31-20.png"
+        />
+
+        <p style={style}>
+          <br />
+          <br />
+          <b> XCode & iOS Simulator</b>
+          <br />
+          XCode is Apple's integrated development environment for macOS, used to
+          develop software for macOS, iOS, iPadOS, watchOS, and tvOS. I used it
+          to run my application on a real apple device as well as to start the
+          simulator, which falls under the xcode’s “developer tools”.
+          <br />
+          <br />
+        </p>
+        <img
+          style={{ width: "70vw" }}
+          src="https://i.ibb.co/DYZPGNd/Zrzut-ekranu-2021-01-2-o-20-45-45.png"
+        />
+        <p style={style}>
+          I found XCode to be crucial tool used throughout the entire project.
+          With XCode I was able to download the support files and develop the
+          app in such way that it will run on the latest iOS devices. The newest
+          iOS (14) was released on September 16, 2020, and it’s said that it was
+          done without giving the developers enough time to adjust. Because I
+          was working on an app that wasn’t previously released, I luckily
+          wasn’t affected by it.
+          <br />
+          <br />
+          XCode was also useful when changing the build settings and app
+          permissions. XCode has a good interface for manipulating these setting
+          without having to write the code yourself.
+          <br />
+          <br />
+        </p>
+        <img
+          style={{ width: "40vw" }}
+          src="https://i.ibb.co/4R9dYMG/Zrzut-ekranu-2021-01-2-o-20-48-31.png"
+        />
+        <p style={style}>
+          <br />
+          <br />
+          <b> Firebase Console </b>
+          The Analog Space app is using the Firebase Firestore, Firebase
+          Authentication and Cloud Storage. All of these can be managed inside
+          the Firebase Console, which provides me with possibilities to view,
+          edit and delete all of the app’s data and users.
+          <br />
+          <br />
+        </p>
+        <img
+          style={{ width: "70vw" }}
+          src="https://i.ibb.co/WBWbJp1/Zrzut-ekranu-2021-01-2-o-21-07-06.png"
+        />
+        <p style={style}>
+          <br />
+          <br />
+          <b>Visual Studio Code</b>
+          <br />
+          This tool was definitely the most used one in the last months. Visual
+          Studio Code is my personal favourite code editor that Visual Studio
+          Code is a free source-code editor made by Microsoft for Windows, Linux
+          and macOS. Features include support for debugging, syntax
+          highlighting, intelligent code completion, snippets, code refactoring
+          and more. To improve my efficiency I used various extensions for this
+          program, that let me use a built-in debugger, have code snippets and
+          run the app directly from VS Code on the simulator or any connected
+          device.
+          <br />
+          <br />
+        </p>
+
+        <img
+          style={{ height: "40vh" }}
+          src="https://i.ibb.co/fxJxMY1/Zrzut-ekranu-2021-01-2-o-19-58-26.png"
+        />
+        <img
+          style={{ width: "70vw" }}
+          src="https://i.ibb.co/0ycTC33/Zrzut-ekranu-2021-01-2-o-19-59-21.png"
+        />
+
+        <p style={style}>
+          <br />
+          <br />
+          <b>Adobe Illustrator & Photoshop </b>
+          Adobe Illustrator and Adobe Photoshop are programs used for graphic
+          design (vector and raster – respectively). I used Illustrator for
+          designing the screens. I organised my work by having an artboard
+          corresponding to each page. It was very easy to export SVG assets from
+          that program, which later would be used in the app as icons or as
+          building blocks for simple animations. I used Photoshop for creating
+          raster graphics – I was editing pictures and creating different
+          graphics to be used in both application and my online portfolio with
+          it.
+          <br />
+          <br />
+        </p>
+
+        <img
+          style={{ width: "70vw" }}
+          src="https://i.ibb.co/D9qLJX2/Zrzut-ekranu-2021-01-2-o-21-39-37.png"
+        />
+
+        <p>
+          4 screen designs on separate artboards with highlighted grouped vector
+          elements
+        </p>
       </div>
     ),
   },

@@ -100,6 +100,7 @@ class SecondPage extends React.Component {
       if (post) {
         const title = post.title
         const myb = post.body
+        const letters = post.letters
 
         content = (
           <div style={styles.firstPanelL}>
@@ -112,9 +113,40 @@ class SecondPage extends React.Component {
               }}
             />
             <div style={styles.insidePanel}>
-              {" "}
               <div style={styles.body}>
                 <p style={styles.title}>{title}</p>
+                <p style={styles.letters}>
+                  <b>
+                    {letters.map(el => {
+                      let day = ""
+                      switch (el) {
+                        case "L":
+                          day = "Learning Ability"
+                          break
+                        case "M":
+                          day = "Manage"
+                          break
+                        case "AN":
+                          day = "Analyze"
+                          break
+                        case "AD":
+                          day = "Advice"
+                          break
+                        case "D":
+                          day = "Design"
+                          break
+                        case "I":
+                          day = "Implement"
+                          break
+                        case "J":
+                          day = "Judgement"
+                        case "C":
+                          day = "Communication"
+                      }
+                      return day + ", "
+                    })}
+                  </b>
+                </p>
                 {myb}
               </div>
             </div>
@@ -158,11 +190,19 @@ const styles = {
   },
   title: {
     fontFamily: "Oswald, sans-serif",
-    fontSize: "3.5em",
+    fontSize: "6.5vh",
     paddingTop: "2vh",
     margin: "2vh 0",
     paddingBottom: "2vh",
     paddingLeft: "5vw",
+  },
+  letters: {
+    fontFamily: "Oswald, sans-serif",
+    fontSize: "3vh",
+    paddingTop: "1vh",
+    paddingBottom: "2vh",
+    paddingLeft: "5vw",
+    color: "lightgreen",
   },
   bodyText: {
     fontFamily: "Raleway, sans-serif",

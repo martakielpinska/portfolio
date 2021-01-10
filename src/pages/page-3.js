@@ -73,16 +73,17 @@ class ThirdPage extends React.Component {
   }
 
   goTo = id => {
-    navigate("/page-2", { state: { id: id } })
+    navigate("/page-2/", { state: { id: id } })
   }
 
   render() {
     const letterStyle = {
       ...styles.pickers,
       color: "white",
-      fontSize: "1em",
+      fontSize: "2vh",
       width: "max-content",
       fontWeight: "300",
+      padding: "0",
     }
     const activeLetterStyle = {
       ...styles.pickers,
@@ -90,25 +91,26 @@ class ThirdPage extends React.Component {
       fontSize: "1em",
       width: "max-content",
       fontWeight: "700",
+      padding: "0",
     }
     let content = null
-    const back = (
-      <div
-        style={{
-          width: "100%",
-          backgroundColor: "black",
-          height: "max-content",
-          padding: "20px 20px",
-        }}
-      >
-        <p style={styles.back} onClick={() => this.handleClick(0)}>
-          BACK TO HOMEPAGE
-        </p>
-      </div>
-    )
-    content = <div style={styles.firstPanelL}>{back}</div>
+    // const back = (
+    //   <div
+    //     style={{
+    //       width: "100%",
+    //       backgroundColor: "black",
+    //       height: "max-content",
+    //       padding: "20px 20px",
+    //     }}
+    //   >
+    //     <p style={styles.back} onClick={() => this.handleClick(0)}>
+    //       BACK TO HOMEPAGE
+    //     </p>
+    //   </div>
+    // )
+    content = <div style={styles.firstPanelL} />
 
-    let letters1 = ["M", "AD", "AN", "D", "I", "J", "C", "L", "DOT"]
+    let letters1 = ["M", "AD", "AN", "D", "I", "J", "C", "L"]
     let list = null
 
     if (contentPages) {
@@ -141,56 +143,104 @@ class ThirdPage extends React.Component {
           </div>
         )
       })
+
+      let mylist = (
+        <div
+          style={{
+            width: "80vw",
+            height: "100vh",
+            display: "flex",
+            flexDirection: "column",
+          }}
+        >
+          {list}
+        </div>
+      )
       content = (
         <div style={styles.firstPanelL}>
-          {back}
-          {list}
-          <div style={styles.fixed}>
-            <p style={styles.ask}>What are you looking for?</p>
-            <div style={styles.holder}>
-              <div style={styles.half}>
-                {letters1.map(l => {
-                  return (
-                    <div
-                      style={styles.letterRow}
-                      className="letterRow"
-                      onClick={() => this.handleClick(l)}
-                    >
-                      <p
-                        key={l}
-                        style={
-                          this.state.letter == l
-                            ? activeLetterStyle
-                            : letterStyle
-                        }
+          <div style={styles.fixedRow}>
+            <div
+              style={{
+                width: "3vw",
+                height: "100%",
+                backgroundColor: "black",
+                display: "flex",
+                backgroundImage: "url('https://i.imgur.com/XThByHD.png')",
+                backgroundSize: "contain",
+                backgroundRepeat: "repeat-y round",
+              }}
+            />
+            <div style={styles.fixed}>
+              <div
+                style={{
+                  width: "100%",
+                  backgroundColor: "#2a2b2b",
+                }}
+              >
+                <p style={styles.back} onClick={() => this.handleClick(0)}>
+                  &#171; BACK
+                </p>
+              </div>
+
+              <p style={styles.ask}>What are you looking for?</p>
+              <div style={styles.holder}>
+                <div style={styles.half}>
+                  {letters1.map(l => {
+                    return (
+                      <div
+                        style={styles.letterRow}
+                        className="letterRow"
+                        onClick={() => this.handleClick(l)}
                       >
-                        {l}
-                      </p>
-                      <p style={letterStyle}>
-                        {l == "AD"
-                          ? "Advice"
-                          : l == "AN"
-                          ? "Analyze"
-                          : l == "M"
-                          ? "Manage"
-                          : l == "D"
-                          ? "Design"
-                          : l == "I"
-                          ? "Implement"
-                          : l == "J"
-                          ? "Judgement"
-                          : l == "L"
-                          ? "Learning Ability"
-                          : l == "DOT"
-                          ? "Framework"
-                          : "Communication"}
-                      </p>
-                    </div>
-                  )
-                })}
+                        <p
+                          key={l}
+                          style={
+                            this.state.letter == l
+                              ? activeLetterStyle
+                              : letterStyle
+                          }
+                        >
+                          {l}
+                        </p>
+                        <p style={letterStyle}>
+                          {l == "AD"
+                            ? "Advice"
+                            : l == "AN"
+                            ? "Analyze"
+                            : l == "M"
+                            ? "Manage"
+                            : l == "D"
+                            ? "Design"
+                            : l == "I"
+                            ? "Implement"
+                            : l == "J"
+                            ? "Judgement"
+                            : l == "L"
+                            ? "Learning Ability"
+                            : l == "DOT"
+                            ? "Framework"
+                            : "Communication"}
+                        </p>
+                      </div>
+                    )
+                  })}
+                </div>
               </div>
             </div>
+
+            <div
+              style={{
+                width: "3vw",
+                height: "100%",
+                backgroundColor: "black",
+                display: "flex",
+                backgroundImage: "url('https://i.imgur.com/XThByHD.png')",
+                backgroundSize: "contain",
+                backgroundRepeat: "repeat-y round",
+              }}
+            />
           </div>
+          {mylist}
         </div>
       )
     }
@@ -245,6 +295,9 @@ const styles = {
     overflowY: "auto",
     height: "100vh",
     width: "80vw",
+    position: "absolute",
+    right: 0,
+    top: 0,
   },
   galleryGrid: {
     width: "50vh",
@@ -254,19 +307,26 @@ const styles = {
     backgroundColor: "white",
     cursor: "pointer",
   },
-  fixed: {
+  fixedRow: {
     position: "fixed",
     height: "100vh",
     width: "20vw",
     top: 0,
-    right: 0,
-    left: "auto",
+    left: 0,
+    backgroundColor: "black",
+    display: "flex",
+    flexDirection: "row",
+  },
+  fixed: {
+    height: "100vh",
+    display: "flex",
+    flexDirection: "column",
     backgroundColor: "black",
   },
   ask: {
     fontFamily: "Raleway, sans-serif",
     fontWeight: 300,
-    fontSize: "1.15em",
+    fontSize: "3vh",
     color: "white",
     padding: "2vh 0 ",
     margin: 0,
@@ -287,10 +347,10 @@ const styles = {
     textAlign: "left",
     fontFamily: "Raleway, sans-serif",
     fontWeight: 300,
-    fontSize: "1.35em",
+    fontSize: "3vh",
     color: "white",
     margin: 0,
-    padding: 0,
+    padding: "10px",
   },
   letterRow: {
     display: "flex",
@@ -298,9 +358,9 @@ const styles = {
     justifyContent: "space-between",
     alignItems: "center",
     backgroundColor: "black",
-    padding: "10px 5px",
+    padding: "5px 10px",
     width: "100%",
-    border: "1px solid white",
+    borderBottom: "0.5px solid white",
     cursor: "pointer",
   },
 }
